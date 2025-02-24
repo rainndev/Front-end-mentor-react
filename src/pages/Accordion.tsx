@@ -39,29 +39,30 @@ const Accordion = () => {
         </div>
 
         {/* accordion container */}
-        <div className="absolute w-full h-full flex justify-center items-center">
-          <div className="max-w-2xl bg-white w-full flex flex-col p-10 rounded-2xl">
+        <div className="absolute w-full h-full flex justify-center items-center ">
+          <div className="max-w-2xl bg-white w-full flex flex-col md:p-10 p-8 rounded-2xl m-7">
             {/* accordion top */}
-            <div className="flex justify-start space-x-5">
+            <div className="flex justify-start space-x-3 items-center">
               <div className="w-16 h-16 flex justify-center items-center">
                 <img
-                  src="/public/faq-accordion-kit/assets/images/icon-star.svg"
-                  className="w-full h-full"
+                  src="/faq-accordion-kit/assets/images/icon-star.svg"
+                  className="w-10 h-10 "
                 />
               </div>
-              <h1 className="text-6xl font-bold text-[hsl(292_42%_14%)]">
+              <h1 className="text-[clamp(2rem,3vw,8rem)] font-bold text-[hsl(292_42%_14%)] align-middle ">
                 FAQs
               </h1>
             </div>
 
             {/* accordion bottom */}
-            <div className="mt-10 space-y-6">
-              {data.map((data, i) => (
+            <div className="mt-10 space-y-4">
+              {data.map((item, i) => (
                 <AccordionItem
                   key={i}
-                  {...data}
+                  {...item}
                   isOpen={activeIndex === i}
                   onToggle={() => HandleToggle(i)}
+                  isLast={i === data.length - 1}
                 />
               ))}
             </div>
