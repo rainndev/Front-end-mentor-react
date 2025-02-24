@@ -1,5 +1,5 @@
 import AccordionItem from "../component/AccordionItem";
-
+import { useState } from "react";
 const data = [
   {
     title: "What is Frontend Mentor, and how will it help me?",
@@ -20,6 +20,12 @@ const data = [
 ];
 
 const Accordion = () => {
+  const [activeIndex, setActiveIndex] = useState(0);
+
+  const HandleToggle = (index: number) => {
+    setActiveIndex(index);
+  };
+
   return (
     <div className="w-screen h-screen bg-[hsl(275_100%_97%)] font-[Work_sans]">
       <div className="relative w-full h-full flex flex-col justify-start items-center">
@@ -34,7 +40,7 @@ const Accordion = () => {
 
         {/* accordion container */}
         <div className="absolute w-full h-full flex justify-center items-center">
-          <div className="max-w-4xl bg-white w-full flex flex-col p-10 rounded-2xl">
+          <div className="max-w-2xl bg-white w-full flex flex-col p-10 rounded-2xl">
             {/* accordion top */}
             <div className="flex justify-start space-x-5">
               <div className="w-16 h-16 flex justify-center items-center">
@@ -49,9 +55,14 @@ const Accordion = () => {
             </div>
 
             {/* accordion bottom */}
-            <div className="mt-10 space-y-5">
-              {data.map((data) => (
-                <AccordionItem {...data} />
+            <div className="mt-10 space-y-6">
+              {data.map((data, i) => (
+                <AccordionItem
+                  key={i}
+                  {...data}
+                  isOpen={activeIndex === i}
+                  onToggle={() => HandleToggle(i)}
+                />
               ))}
             </div>
           </div>
