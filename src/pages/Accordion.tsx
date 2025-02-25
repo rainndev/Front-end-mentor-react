@@ -20,10 +20,11 @@ const data = [
 ];
 
 const Accordion = () => {
-  const [activeIndex, setActiveIndex] = useState(0);
+  const dummyNumber = 82374;
+  const [activeIndex, setActiveIndex] = useState(dummyNumber);
 
-  const HandleToggle = (index: number) => {
-    setActiveIndex(index);
+  const HandleToggle = (index: number, activeIndex: number) => {
+    setActiveIndex(activeIndex === index ? dummyNumber : index);
   };
 
   return (
@@ -42,11 +43,11 @@ const Accordion = () => {
         <div className="absolute w-full h-full flex justify-center items-center ">
           <div className="max-w-2xl bg-white w-full flex flex-col md:p-10 p-8 rounded-2xl m-7">
             {/* accordion top */}
-            <div className="flex justify-start space-x-3 items-center">
-              <div className="w-16 h-16 flex justify-center items-center">
+            <div className="flex justify-start space-x-3 md:space-x-5 items-center">
+              <div className=" flex justify-center items-center">
                 <img
                   src="/faq-accordion-kit/assets/images/icon-star.svg"
-                  className="w-10 h-10 "
+                  className="w-7 h-7  p-0 md:w-10 md:h-10 "
                 />
               </div>
               <h1 className="text-[clamp(2rem,3vw,8rem)] font-bold text-[hsl(292_42%_14%)] align-middle ">
@@ -61,7 +62,7 @@ const Accordion = () => {
                   key={i}
                   {...item}
                   isOpen={activeIndex === i}
-                  onToggle={() => HandleToggle(i)}
+                  onToggle={() => HandleToggle(i, activeIndex)}
                   isLast={i === data.length - 1}
                 />
               ))}

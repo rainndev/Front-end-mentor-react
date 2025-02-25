@@ -1,4 +1,4 @@
-import { useRef } from "react";
+import { useRef, useE } from "react";
 import { motion } from "framer-motion";
 interface AccordionItemProps {
   isOpen: boolean;
@@ -17,6 +17,22 @@ const AccordionItem = ({
 }: AccordionItemProps) => {
   const contentRef = useRef<HTMLDivElement>(null);
 
+  const accordionVariants = {
+    initial: {
+      opacity: 0,
+      maxHeight: 0,
+    },
+    open: {
+      opacity: 1,
+      maxHeight: contentRef.current?.scrollHeight,
+    },
+    notOpen: {
+      opacity: 0,
+      maxHeight: 0,
+    },
+  };
+
+  console.log(isOpen, contentRef.current?.scrollHeight);
   return (
     <div>
       {/* Title of accordion item */}
@@ -39,10 +55,9 @@ const AccordionItem = ({
 
       <motion.div
         ref={contentRef}
-        animate={{
-          opacity: isOpen ? 1 : 0,
-          maxHeight: isOpen ? contentRef.current?.scrollHeight : 0,
-        }}
+        variants={accordionVariants}
+        initial="initial"
+        animate={isOpen ? "open" : "notOpen"}
         transition={{ duration: 0, ease: "easeInOut" }}
         className="mt-5 leading-relaxed text-[hsl(292_16%_49%)] overflow-hidden transition-max-height duration-300 ease-in-out "
       >
