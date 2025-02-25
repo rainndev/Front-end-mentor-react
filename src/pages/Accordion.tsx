@@ -34,7 +34,7 @@ const Accordion = () => {
         <div className="h-[35%] bg-fuchsia-500 w-full">
           <img
             className="w-full h-full object-cover"
-            src="/public/faq-accordion-kit/assets/images/background-pattern-desktop.svg"
+            src="/Front-end-mentor-react/faq-accordion-kit/assets/images/background-pattern-desktop.svg"
             alt="faq-accordion-bg"
           />
         </div>
@@ -46,7 +46,7 @@ const Accordion = () => {
             <div className="flex justify-start space-x-3 md:space-x-5 items-center">
               <div className=" flex justify-center items-center">
                 <img
-                  src="/faq-accordion-kit/assets/images/icon-star.svg"
+                  src="/Front-end-mentor-react/faq-accordion-kit/assets/images/icon-star.svg"
                   className="w-7 h-7  p-0 md:w-10 md:h-10 "
                 />
               </div>

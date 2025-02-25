@@ -1,4 +1,4 @@
-import { useRef, useE } from "react";
+import { useRef } from "react";
 import { motion } from "framer-motion";
 interface AccordionItemProps {
   isOpen: boolean;
@@ -45,7 +45,7 @@ const AccordionItem = ({
         </h1>
         <motion.img
           animate={{ rotate: isOpen ? 180 : 0, scale: isOpen ? 1.05 : 1 }}
-          src={`/faq-accordion-kit/assets/images/${
+          src={`/Front-end-mentor-react/faq-accordion-kit/assets/images/${
             isOpen ? "icon-minus.svg" : "icon-plus.svg"
           }`}
           alt=""
