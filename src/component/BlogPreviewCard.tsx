@@ -4,7 +4,7 @@ const BlogPreviewCard = () => {
   return (
     <div className="w-screen h-screen flex justify-center items-center bg-[hsl(47_88%_63%)] font-[Figtree] ">
       {/* Container */}
-      <div className="bg-white p-4 rounded-2xl border-1 border-[hsl(0_0%_42%)] shadow-[7px_7px]  w-[350px] space-y-4">
+      <div className="bg-white p-4 rounded-2xl border-1 border-[hsl(0_0%_42%)] shadow-[7px_7px]  w-[350px] space-y-4 mx-5">
         {/* Image */}
 
         <div className="w-full">
@@ -22,7 +22,7 @@ const BlogPreviewCard = () => {
           </button>
           <p className="font-medium  text-sm">Published 21 Dec 2023</p>
 
-          <h1 className="text-[hsl(47_88%_63%)] font-bold text-xl">
+          <h1 className="hover:text-[hsl(47_88%_63%)] font-bold text-xl">
             HTML & CSS foundations
           </h1>
 
