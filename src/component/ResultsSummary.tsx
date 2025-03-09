@@ -20,7 +20,7 @@ const ResultsSummary = () => {
           </div>
           {/* info */}
           <h3 className="text-3xl font-semibold z-10">Great</h3>
-          <p className="text-center z-10 text-lg mx-5 text-[hsl(241,100%,89%)]">
+          <p className="text-center z-10 text-lg mx-4 text-[hsl(241,100%,89%)]">
             You scored higher than 65% of the people who have taken these tests.
           </p>
 
