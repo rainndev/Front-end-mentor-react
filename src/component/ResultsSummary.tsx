@@ -2,7 +2,7 @@ import data from "../data/results-summary-data.json";
 
 const ResultsSummary = () => {
   return (
-    <div className="w-screen h-screen flex justify-center items-center font-[Hanken_grotesk] text-white  ">
+    <div className="w-screen h-screen flex justify-center items-center font-[Hanken_grotesk] text-white  bg-gray-100">
       {/* container */}
       <div className="w-full bg-white rounded-4xl max-w-3xl grid grid-cols-2">
         {/* LEFT GRID SUMMARY */}
