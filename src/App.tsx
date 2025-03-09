@@ -1,3 +1,4 @@
+import BlogPreviewCard from "./component/BlogPreviewCard";
 import Accordion from "./pages/Accordion";
 import Homepage from "./pages/Homepage";
 import { Routes, Route } from "react-router-dom";
@@ -8,6 +9,7 @@ const App = () => {
       <Routes>
         <Route path="/" element={<Homepage />} />
         <Route path="/faq-accordion" element={<Accordion />} />
+        <Route path="/blog-preview-card" element={<BlogPreviewCard />} />
       </Routes>
     </div>
   );
