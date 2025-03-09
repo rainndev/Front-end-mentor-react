@@ -1,3 +1,5 @@
+import data from "../data/results-summary-data.json";
+
 const ResultsSummary = () => {
   return (
     <div className="w-screen h-screen flex justify-center items-center font-[Hanken_grotesk] text-white  ">
@@ -31,7 +33,41 @@ const ResultsSummary = () => {
         </div>
 
         {/* Right grid - Summary */}
-        <div className="bg-white w-full rounded-4xl">Summary</div>
+        <div className="bg-white w-full rounded-4xl p-10 space-y-8">
+          {/* Title */}
+          <h1 className="text-[hsl(224,30%,27%)] text-2xl font-bold">
+            Summary
+          </h1>
+
+          {/* Content */}
+          <div className="space-y-4">
+            {data.map(({ category, clr, score, icon, bgClr }, i) => (
+              <div
+                style={{ backgroundColor: bgClr }}
+                key={i}
+                className="p-4 flex justify-between rounded-xl "
+              >
+                <div className="flex space-x-3">
+                  <img src={icon} alt={category} />
+                  <p className="font-semibold text-lg" style={{ color: clr }}>
+                    {category}
+                  </p>
+                </div>
+                <div className="font-bold">
+                  <p>
+                    <span className="text-[hsl(224,30%,27%)]">{score}</span>
+                    <span className="text-gray-400"> / 100</span>
+                  </p>
+                </div>
+              </div>
+            ))}
+          </div>
+
+          {/* Button continue */}
+          <button className="text-center bg-[hsl(224,30%,27%)] w-full py-3 rounded-full text-lg">
+            Continue
+          </button>
+        </div>
       </div>
     </div>
   );

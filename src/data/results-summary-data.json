@@ -2,21 +2,29 @@
   {
     "category": "Reaction",
     "score": 80,
-    "icon": "./assets/images/icon-reaction.svg"
+    "icon": "/Front-end-mentor-react/results-summary-component-main/assets/images/icon-reaction.svg",
+    "clr": "hsl(0,100%,67%)",
+    "bgClr": "hsl(0, 100%, 97%)"
   },
   {
     "category": "Memory",
     "score": 92,
-    "icon": "./assets/images/icon-memory.svg"
+    "icon": "/Front-end-mentor-react/results-summary-component-main/assets/images/icon-memory.svg",
+    "clr": "hsl(39,100%,56%)",
+    "bgClr": "hsl(39,100%,97%)"
   },
   {
     "category": "Verbal",
     "score": 61,
-    "icon": "./assets/images/icon-verbal.svg"
+    "icon": "/Front-end-mentor-react/results-summary-component-main/assets/images/icon-verbal.svg",
+    "clr": "hsl(166,100%,37%)",
+    "bgClr": "hsl(166,100%,97%)"
   },
   {
     "category": "Visual",
     "score": 72,
-    "icon": "./assets/images/icon-visual.svg"
+    "icon": "/Front-end-mentor-react/results-summary-component-main/assets/images/icon-visual.svg",
+    "clr": "hsl(234,85%,45%)",
+    "bgClr": "hsl(234,85%,97%)"
   }
 ]
