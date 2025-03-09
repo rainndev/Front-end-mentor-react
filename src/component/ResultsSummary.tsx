@@ -68,7 +68,7 @@ const ResultsSummary = () => {
           </div>
 
           {/* Button continue */}
-          <button className="text-center bg-[hsl(224,30%,27%)] w-full py-3 rounded-full  text-[clamp(1rem,2vw,1.125rem)]">
+          <button className="text-center bg-[hsl(224,30%,27%)] w-full py-3 rounded-full  text-[clamp(1rem,2vw,1.125rem)] active:bg-gradient-to-b from-[hsla(256,72%,46%,1)] to-[hsl(241,81%,54%)] transition-all cursor-pointer">
             Continue
           </button>
         </div>
