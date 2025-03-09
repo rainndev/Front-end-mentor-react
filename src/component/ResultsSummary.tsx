@@ -2,7 +2,7 @@ import data from "../data/results-summary-data.json";
 
 const ResultsSummary = () => {
   return (
-    <div className="w-screen h-screen flex justify-center items-center font-[Hanken_grotesk] text-white  bg-gray-100">
+    <div className="w-screen h-screen flex justify-center items-center font-[Hanken_grotesk] text-white  bg-gray-100 drop-shadow-xl shadow-[hsl(252,100%,67%)]">
       {/* container */}
       <div className="w-full bg-white rounded-4xl max-w-3xl grid grid-cols-2">
         {/* LEFT GRID SUMMARY */}
@@ -40,7 +40,7 @@ const ResultsSummary = () => {
           </h1>
 
           {/* Content */}
-          <div className="space-y-4">
+          <div className="space-y-3">
             {data.map(({ category, clr, score, icon, bgClr }, i) => (
               <div
                 style={{ backgroundColor: bgClr }}
