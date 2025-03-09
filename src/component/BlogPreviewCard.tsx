@@ -20,7 +20,7 @@ const BlogPreviewCard = () => {
           </button>
           <p className="font-medium  text-sm">Published 21 Dec 2023</p>
 
-          <h1 className="hover:text-[hsl(47_88%_63%)] font-extrabold text-2xl">
+          <h1 className="hover:text-[hsl(47_88%_63%)] transition-colors font-extrabold text-2xl">
             HTML & CSS foundations
           </h1>
 
