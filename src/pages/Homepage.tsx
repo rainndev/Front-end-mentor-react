@@ -1,10 +1,17 @@
+import { challenges } from "../data/challenges";
+import { Link } from "react-router-dom";
+
 const Homepage = () => {
   return (
-    <div>
-      <img
-        src="https://www.frontendmentor.io/_next/image?url=%2Fstatic%2Fimages%2Flogo-desktop.svg&w=256&q=75"
-        alt=""
-      />
+    <div className="text-amber-300">
+      <h1 className="text-5xl font-bold"> Frontend Mentor | Challenges</h1>
+      <ul className="mt-5 list-disc list-inside text-2xl underline">
+        {challenges.map(({ title }) => (
+          <li>
+            <Link to={`/${title}`}>{title}</Link>
+          </li>
+        ))}
+      </ul>
     </div>
   );
 };

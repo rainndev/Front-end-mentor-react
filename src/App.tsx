@@ -4,7 +4,7 @@ import { Routes, Route } from "react-router-dom";
 
 const App = () => {
   return (
-    <div className="h-screen w-screen flex justify-center items-center bg-gray-100">
+    <div className="h-screen w-screen flex justify-center items-center bg-[#212121]">
       <Routes>
         <Route path="/" element={<Homepage />} />
         <Route path="/faq-accordion" element={<Accordion />} />
