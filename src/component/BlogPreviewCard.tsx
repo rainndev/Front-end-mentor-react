@@ -1,10 +1,8 @@
-import React from "react";
-
 const BlogPreviewCard = () => {
   return (
     <div className="w-screen h-screen flex justify-center items-center bg-[hsl(47_88%_63%)] font-[Figtree] ">
       {/* Container */}
-      <div className="bg-white p-4 rounded-2xl border-1 border-[hsl(0_0%_42%)] shadow-[7px_7px]  w-[350px] space-y-4 mx-5">
+      <div className="bg-white p-4 rounded-2xl border-1 border-[hsl(0_0%_42%)] shadow-[7px_7px]  w-[375px] space-y-4 mx-5">
         {/* Image */}
 
         <div className="w-full">
