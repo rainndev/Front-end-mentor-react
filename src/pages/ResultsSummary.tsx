@@ -8,7 +8,7 @@ const ResultsSummary = () => {
         {/* LEFT GRID SUMMARY */}
         <div className="relative bg-[hsl(252_100%_67%)]  w-full p-10  flex items-center flex-col space-y-3 md:space-y-5 rounded-b-4xl  md:rounded-4xl ">
           {/* result text */}
-          <h1 className="text-[clamp(1rem,1.5vw,1.5rem)] font-semibold text-[hsl(221,100%,96%)]">
+          <h1 className="text-lg md:text-2xl font-semibold text-[hsl(221,100%,96%)]">
             Your Result
           </h1>
           {/* Circle with data */}
@@ -37,7 +37,7 @@ const ResultsSummary = () => {
         </div>
 
         {/* Right grid - Summary */}
-        <div className="bg-white w-full rounded-4xl p-[clamp(1.2rem,2vw,2.5rem)] space-y-8">
+        <div className="bg-white w-full rounded-4xl p-[2.5rem] space-y-8">
           {/* Title */}
           <h1 className="text-[hsl(224,30%,27%)] text-2xl font-bold">
             Summary
