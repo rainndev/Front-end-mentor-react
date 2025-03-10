@@ -10,7 +10,7 @@ const TicketGeneratorMain = () => {
         <img
           src="/Front-end-mentor-react/conference-ticket-generator/assets/images/logo-full.svg"
           alt="Full logo"
-          className="mb-10"
+          className="mb-10 w-44"
         />
 
         <h1 className="text-5xl font-bold text-center text-pretty  mb-3">
@@ -18,7 +18,7 @@ const TicketGeneratorMain = () => {
           2025 Starts Here!
         </h1>
 
-        <p className="text-[hsl(245,15%,58%)]">
+        <p className="text-[hsl(252,6%,83%)] text-lg">
           Secure your spot at next year's biggest coding conference.
         </p>
       </div>
@@ -26,7 +26,7 @@ const TicketGeneratorMain = () => {
       {/* Form container */}
       <form
         className="mt-10 flex flex-col w-full 
-      max-w-md"
+      max-w-md space-y-5"
       >
         {/* Avatar Uploader */}
         <div className="flex flex-col">
@@ -41,10 +41,10 @@ const TicketGeneratorMain = () => {
           <div
             id="upload-avatar"
             onClick={() => fileInputRef.current && fileInputRef.current.click()}
-            className="border-2 border-dashed border-[hsl(245,15%,58%)] rounded-xl py-4 bg-indigo-950 cursor-pointer flex flex-col items-center justify-center"
+            className="border-2 border-dashed border-[hsl(245,15%,58%)] rounded-xl py-4 bg-[hsla(245,19%,35%,0.3)] cursor-pointer flex flex-col items-center justify-center backdrop-blur-[2px]"
           >
             {/* Image icon for upload */}
-            <div className="bg-indigo-900 p-2 rounded-lg mb-3 ">
+            <div className="bg-[hsla(246,15%,58%,0.3)] border-[hsl(245,15%,58%)] drop-shadow-2xl p-2 rounded-lg mb-3 ">
               <img
                 src="/Front-end-mentor-react/conference-ticket-generator/assets/images/icon-upload.svg"
                 alt="upload-avatar"
@@ -73,6 +73,61 @@ const TicketGeneratorMain = () => {
             </p>
           </div>
         </div>
+
+        {/* Full name */}
+
+        <div className="flex flex-col">
+          <label
+            className="text-white text-md font-semibold mb-2"
+            htmlFor="full-name"
+          >
+            Full Name
+          </label>
+          <input
+            className="border-[hsl(245,15%,58%)] border py-3 rounded-xl bg-[hsla(245,19%,35%,0.3)] px-3 backdrop-blur-[2px]"
+            id="full-name"
+            type="text"
+          />
+        </div>
+        {/* Email Address */}
+        <div className="flex flex-col">
+          <label
+            className="text-white text-md font-semibold mb-2"
+            htmlFor="full-name"
+          >
+            Email Address
+          </label>
+          <input
+            placeholder="example@gmail.com"
+            className="border-[hsl(245,15%,58%)] border py-3 rounded-xl bg-[hsla(245,19%,35%,0.3)] px-3 backdrop-blur-[2px]"
+            id="full-name"
+            type="email"
+          />
+        </div>
+
+        {/*  Github Username */}
+        <div className="flex flex-col">
+          <label
+            className="text-white text-md font-semibold mb-2"
+            htmlFor="full-name"
+          >
+            Github Username
+          </label>
+          <input
+            placeholder="@yourusername"
+            className="border-[hsl(245,15%,58%)] border py-3 rounded-xl bg-[hsla(245,19%,35%,0.3)] px-3 backdrop-blur-[2px]"
+            id="full-name"
+            type="text"
+          />
+        </div>
+
+        {/* Generate ticket button */}
+        <button
+          type="submit"
+          className="w-full bg-[hsl(7,88%,67%)] text-[hsl(248,70%,10%)] py-3 font-black rounded-xl"
+        >
+          Generate My Ticket
+        </button>
       </form>
     </div>
   );
