@@ -9,7 +9,7 @@ const TicketGeneratorMain = () => {
           className="mb-10"
         />
 
-        <h1 className="text-5xlxl font-bold text-center text-pretty  mb-3">
+        <h1 className="text-5xl font-bold text-center text-pretty  mb-3">
           Your Journey to Coding Conf <br />
           2025 Starts Here!
         </h1>
