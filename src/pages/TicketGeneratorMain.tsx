@@ -106,6 +106,7 @@ const TicketGeneratorMain = () => {
               Full Name
             </label>
             <input
+              autoComplete="off"
               className="border-[hsl(245,15%,58%)] border py-3 rounded-xl bg-[hsla(245,19%,35%,0.3)] px-3 backdrop-blur-[2px]"
               id="full-name"
               type="text"
@@ -120,6 +121,7 @@ const TicketGeneratorMain = () => {
               Email Address
             </label>
             <input
+              autoComplete="off"
               placeholder="example@gmail.com"
               className="border-[hsl(245,15%,58%)] border py-3 rounded-xl bg-[hsla(245,19%,35%,0.3)] px-3 backdrop-blur-[2px]  hover:bg-[hsl(252,6%,83%,0.2)]"
               id="email"
@@ -136,6 +138,7 @@ const TicketGeneratorMain = () => {
               Github Username
             </label>
             <input
+              autoComplete="off"
               placeholder="@yourusername"
               className="border-[hsl(245,15%,58%)] border py-3 rounded-xl bg-[hsla(245,19%,35%,0.3)] px-3 backdrop-blur-[2px]  hover:bg-[hsl(252,6%,83%,0.2)]"
               id="github"
