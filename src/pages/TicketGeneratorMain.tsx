@@ -4,7 +4,7 @@ const TicketGeneratorMain = () => {
   const fileInputRef = useRef<HTMLInputElement>(null);
 
   return (
-    <div className="text-white w-screen h-screen bg-[hsl(248,70%,10%)] bg-cover bg-no-repeat bg-center flex flex-col justify-center items-center bg-[url(/Front-end-mentor-react/conference-ticket-generator/assets/images/background-desktop.png)] font-[Inconsolata] p-8 ">
+    <div className="text-white w-screen h-screen bg-[hsl(248,70%,10%)] bg-cover bg-no-repeat bg-center flex flex-col justify-center items-center bg-[url(/Front-end-mentor-react/conference-ticket-generator/assets/images/pattern-lines.svg),url(/Front-end-mentor-react/conference-ticket-generator/assets/images/background-desktop.png)] font-[Inconsolata] p-8 ">
       {/* Top Info */}
       <div className="flex flex-col justify-center items-center mx-36">
         <img
