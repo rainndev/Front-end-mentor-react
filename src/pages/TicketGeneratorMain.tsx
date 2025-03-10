@@ -24,7 +24,7 @@ const TicketGeneratorMain = () => {
         alt=""
       />
 
-      <div className="text-white w-screen h-screen bg-[hsl(248,70%,10%)] bg-cover bg-no-repeat bg-center flex flex-col justify-center items-center bg-[url(/Front-end-mentor-react/conference-ticket-generator/assets/images/pattern-lines.svg),url(/Front-end-mentor-react/conference-ticket-generator/assets/images/background-desktop.png)] font-[Inconsolata] p-8 ">
+      <div className=" text-white w-screen h-screen bg-[hsl(248,70%,10%)] bg-cover bg-no-repeat bg-center flex flex-col justify-center items-center bg-[url(/Front-end-mentor-react/conference-ticket-generator/assets/images/pattern-lines.svg),url(/Front-end-mentor-react/conference-ticket-generator/assets/images/background-desktop.png)] font-[Inconsolata] p-8 ">
         {/* Top Info */}
         <div className="flex flex-col justify-center items-center mx-36">
           <img
@@ -49,7 +49,7 @@ const TicketGeneratorMain = () => {
       max-w-md space-y-5"
         >
           {/* Avatar Uploader */}
-          <div className="flex flex-col">
+          <div className="flex flex-col ">
             {/* Label for Upload avatar */}
             <label
               htmlFor="upload-avatar"
@@ -63,7 +63,7 @@ const TicketGeneratorMain = () => {
               onClick={() =>
                 fileInputRef.current && fileInputRef.current.click()
               }
-              className="border-2 border-dashed border-[hsl(245,15%,58%)] rounded-xl py-4 bg-[hsla(245,19%,35%,0.3)] cursor-pointer flex flex-col items-center justify-center backdrop-blur-[2px]"
+              className="border-2 border-dashed border-[hsl(245,15%,58%)] rounded-xl py-4 bg-[hsla(245,19%,35%,0.3)] cursor-pointer flex flex-col items-center justify-center backdrop-blur-[2px] hover:bg-[hsl(252,6%,83%,0.2)]"
             >
               {/* Image icon for upload */}
               <div className="bg-[hsla(246,15%,58%,0.3)] border-[hsl(245,15%,58%)] drop-shadow-2xl p-2 rounded-lg mb-3 ">
@@ -100,13 +100,13 @@ const TicketGeneratorMain = () => {
 
           <div className="flex flex-col">
             <label
-              className="text-white text-md font-semibold mb-2"
+              className="text-white text-md font-semibold mb-2 "
               htmlFor="full-name"
             >
               Full Name
             </label>
             <input
-              className="border-[hsl(245,15%,58%)] border py-3 rounded-xl bg-[hsla(245,19%,35%,0.3)] px-3 backdrop-blur-[2px]"
+              className="border-[hsl(245,15%,58%)] border py-3 rounded-xl bg-[hsla(245,19%,35%,0.3)] px-3 backdrop-blur-[2px] hover:bg-[hsl(252,6%,83%,0.2)]"
               id="full-name"
               type="text"
             />
@@ -115,14 +115,14 @@ const TicketGeneratorMain = () => {
           <div className="flex flex-col">
             <label
               className="text-white text-md font-semibold mb-2"
-              htmlFor="full-name"
+              htmlFor="email"
             >
               Email Address
             </label>
             <input
               placeholder="example@gmail.com"
-              className="border-[hsl(245,15%,58%)] border py-3 rounded-xl bg-[hsla(245,19%,35%,0.3)] px-3 backdrop-blur-[2px]"
-              id="full-name"
+              className="border-[hsl(245,15%,58%)] border py-3 rounded-xl bg-[hsla(245,19%,35%,0.3)] px-3 backdrop-blur-[2px] hover:bg-[hsl(252,6%,83%,0.2)]"
+              id="email"
               type="email"
             />
           </div>
@@ -131,14 +131,14 @@ const TicketGeneratorMain = () => {
           <div className="flex flex-col">
             <label
               className="text-white text-md font-semibold mb-2"
-              htmlFor="full-name"
+              htmlFor="github"
             >
               Github Username
             </label>
             <input
               placeholder="@yourusername"
-              className="border-[hsl(245,15%,58%)] border py-3 rounded-xl bg-[hsla(245,19%,35%,0.3)] px-3 backdrop-blur-[2px]"
-              id="full-name"
+              className="border-[hsl(245,15%,58%)] border py-3 rounded-xl bg-[hsla(245,19%,35%,0.3)] px-3 backdrop-blur-[2px] hover:bg-[hsl(252,6%,83%,0.2)]"
+              id="github"
               type="text"
             />
           </div>
@@ -146,7 +146,7 @@ const TicketGeneratorMain = () => {
           {/* Generate ticket button */}
           <button
             type="submit"
-            className="w-full bg-[hsl(7,88%,67%)] text-[hsl(248,70%,10%)] py-3 font-black rounded-xl"
+            className="w-full bg-[hsl(7,88%,67%)] text-[hsl(248,70%,10%)] py-3 font-black rounded-xl hover:bg-[hsl(7,71%,60%)]"
           >
             Generate My Ticket
           </button>
