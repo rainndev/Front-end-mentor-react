@@ -1,3 +1,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Figtree:ital,wght@0,300..900;1,300..900&family=Hanken+Grotesk:ital,wght@0,100..900;1,100..900&family=Inconsolata:wght@200..900&family=Work+Sans:ital,wght@0,100..900;1,100..900&display=swap");
 
 @import "tailwindcss";
+
+.formContainer input {
+  @apply focus:outline-none focus:ring-2  focus:ring-[hsl(245,15%,58%)] focus:ring-offset-2 focus:ring-offset-[hsl(248,70%,10%)] hover:bg-[hsl(252,6%,83%,0.2)];
+}

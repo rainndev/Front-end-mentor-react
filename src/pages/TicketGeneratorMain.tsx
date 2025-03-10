@@ -45,8 +45,8 @@ const TicketGeneratorMain = () => {
 
         {/* Form container */}
         <form
-          className="mt-10 flex flex-col w-full 
-      max-w-md space-y-5"
+          className="formContainer mt-10 flex flex-col w-full 
+      max-w-md space-y-5 "
         >
           {/* Avatar Uploader */}
           <div className="flex flex-col ">
@@ -63,7 +63,7 @@ const TicketGeneratorMain = () => {
               onClick={() =>
                 fileInputRef.current && fileInputRef.current.click()
               }
-              className="border-2 border-dashed border-[hsl(245,15%,58%)] rounded-xl py-4 bg-[hsla(245,19%,35%,0.3)] cursor-pointer flex flex-col items-center justify-center backdrop-blur-[2px] hover:bg-[hsl(252,6%,83%,0.2)]"
+              className="border-2 border-dashed border-[hsl(245,15%,58%)] rounded-xl py-4 bg-[hsla(245,19%,35%,0.3)] cursor-pointer flex flex-col items-center justify-center backdrop-blur-[2px]  hover:bg-[hsl(252,6%,83%,0.2)] "
             >
               {/* Image icon for upload */}
               <div className="bg-[hsla(246,15%,58%,0.3)] border-[hsl(245,15%,58%)] drop-shadow-2xl p-2 rounded-lg mb-3 ">
@@ -106,7 +106,7 @@ const TicketGeneratorMain = () => {
               Full Name
             </label>
             <input
-              className="border-[hsl(245,15%,58%)] border py-3 rounded-xl bg-[hsla(245,19%,35%,0.3)] px-3 backdrop-blur-[2px] hover:bg-[hsl(252,6%,83%,0.2)]"
+              className="border-[hsl(245,15%,58%)] border py-3 rounded-xl bg-[hsla(245,19%,35%,0.3)] px-3 backdrop-blur-[2px]"
               id="full-name"
               type="text"
             />
@@ -121,7 +121,7 @@ const TicketGeneratorMain = () => {
             </label>
             <input
               placeholder="example@gmail.com"
-              className="border-[hsl(245,15%,58%)] border py-3 rounded-xl bg-[hsla(245,19%,35%,0.3)] px-3 backdrop-blur-[2px] hover:bg-[hsl(252,6%,83%,0.2)]"
+              className="border-[hsl(245,15%,58%)] border py-3 rounded-xl bg-[hsla(245,19%,35%,0.3)] px-3 backdrop-blur-[2px]  hover:bg-[hsl(252,6%,83%,0.2)]"
               id="email"
               type="email"
             />
@@ -137,7 +137,7 @@ const TicketGeneratorMain = () => {
             </label>
             <input
               placeholder="@yourusername"
-              className="border-[hsl(245,15%,58%)] border py-3 rounded-xl bg-[hsla(245,19%,35%,0.3)] px-3 backdrop-blur-[2px] hover:bg-[hsl(252,6%,83%,0.2)]"
+              className="border-[hsl(245,15%,58%)] border py-3 rounded-xl bg-[hsla(245,19%,35%,0.3)] px-3 backdrop-blur-[2px]  hover:bg-[hsl(252,6%,83%,0.2)]"
               id="github"
               type="text"
             />
