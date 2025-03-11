@@ -1,7 +1,35 @@
-import { useRef } from "react";
+import { useCallback, useRef, useState } from "react";
 
 const TicketGeneratorMain = () => {
   const fileInputRef = useRef<HTMLInputElement>(null);
+  const [image, setImage] = useState<string>("");
+
+  const handleFileChanged = (event: any) => {
+    const file = event.target.files[0];
+
+    if (file) {
+      // setFileName(file.name);
+
+      // Read file and generate preview URL
+      const reader = new FileReader();
+      reader.onload = (e) => {
+        if (e.target?.result !== undefined) {
+          if (typeof e.target.result === "string") {
+            setImage(e.target.result);
+          }
+        }
+      };
+      reader.readAsDataURL(file);
+    }
+  };
+
+  const handleClickUpload = () => {
+    fileInputRef.current && fileInputRef.current.click();
+  };
+
+  const handleRemove = () => {
+    setImage("");
+  };
 
   return (
     <>
@@ -60,25 +88,55 @@ const TicketGeneratorMain = () => {
 
             <div
               id="upload-avatar"
-              onClick={() =>
-                fileInputRef.current && fileInputRef.current.click()
-              }
-              className="border-2 border-dashed border-[hsl(245,15%,58%)] rounded-xl py-4 bg-[hsla(245,19%,35%,0.3)] cursor-pointer flex flex-col items-center justify-center backdrop-blur-[2px]  hover:bg-[hsl(252,6%,83%,0.2)] "
+              onClick={() => !image && handleClickUpload()}
+              className={`border-2 border-dashed border-[hsl(245,15%,58%)] rounded-xl py-4 bg-[hsla(245,19%,35%,0.3)] cursor-pointer flex flex-col items-center justify-center backdrop-blur-[2px]  ${
+                !image && "hover:bg-[hsl(252,6%,83%,0.2)] "
+              } `}
             >
               {/* Image icon for upload */}
-              <div className="bg-[hsla(246,15%,58%,0.3)] border-[hsl(245,15%,58%)] drop-shadow-2xl p-2 rounded-lg mb-3 ">
+              <div
+                className={`bg-[hsla(246,15%,58%,0.3)] border border-[hsl(245,15%,58%)] ${
+                  image ? "p-0 w-10 h-10" : "p-2"
+                } drop-shadow-2xl  rounded-lg mb-3 `}
+              >
                 <img
-                  src="/Front-end-mentor-react/conference-ticket-generator/assets/images/icon-upload.svg"
+                  src={
+                    image
+                      ? image
+                      : "/Front-end-mentor-react/conference-ticket-generator/assets/images/icon-upload.svg"
+                  }
                   alt="upload-avatar"
-                  className="w-6 h-6 "
+                  className="w-full h-full rounded-lg bg-cover"
                 />
               </div>
-              <p className="text-gray-400 text-md text-center">
-                Drag and drop or click to upload
-              </p>
+
+              {image ? (
+                // button for remove
+                <div
+                  onClick={() => handleRemove()}
+                  className="space-x-5 text-[hsl(252,6%,83%)]"
+                >
+                  <button className="px-3 py-1 bg-[hsla(245,19%,35%,0.5)] rounded-md underline  hover:bg-[hsl(252,6%,83%,0.2)]">
+                    Remove image
+                  </button>
+
+                  {/* change avatar button */}
+                  <button
+                    onClick={() => handleClickUpload()}
+                    className="px-3 py-1 bg-[hsla(245,19%,35%,0.5)] rounded-md hover:bg-[hsl(252,6%,83%,0.2)]"
+                  >
+                    Change image
+                  </button>
+                </div>
+              ) : (
+                <p className="text-gray-400 text-md text-center">
+                  Drag and drop or click to upload
+                </p>
+              )}
 
               <input
                 ref={fileInputRef}
+                onChange={handleFileChanged}
                 type="file"
                 className="hidden"
                 accept="image/*"
