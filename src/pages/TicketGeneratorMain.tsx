@@ -6,7 +6,7 @@ const TicketGeneratorMain = () => {
 
   const handleFileChanged = (event: any) => {
     const file = event.target.files[0];
-
+    console.log("Filechange execute: onchanged");
     if (file) {
       // setFileName(file.name);
 
@@ -23,13 +23,16 @@ const TicketGeneratorMain = () => {
     }
   };
 
-  const handleClickUpload = () => {
-    fileInputRef.current && fileInputRef.current.click();
-  };
+  const handleClickUpload = useCallback(() => {
+    if (fileInputRef.current) {
+      fileInputRef.current.click(); // Open file picker
+    }
+  }, [setImage]);
 
-  const handleRemove = () => {
+  const handleRemove = useCallback(() => {
+    console.log("Removing image...");
     setImage("");
-  };
+  }, [setImage]);
 
   return (
     <>
@@ -113,7 +116,7 @@ const TicketGeneratorMain = () => {
               {image ? (
                 // button for remove
                 <div
-                  onClick={() => handleRemove()}
+                  onClick={handleRemove}
                   className="space-x-5 text-[hsl(252,6%,83%)]"
                 >
                   <button className="px-3 py-1 bg-[hsla(245,19%,35%,0.5)] rounded-md underline  hover:bg-[hsl(252,6%,83%,0.2)]">
@@ -122,7 +125,7 @@ const TicketGeneratorMain = () => {
 
                   {/* change avatar button */}
                   <button
-                    onClick={() => handleClickUpload()}
+                    onClick={handleClickUpload}
                     className="px-3 py-1 bg-[hsla(245,19%,35%,0.5)] rounded-md hover:bg-[hsl(252,6%,83%,0.2)]"
                   >
                     Change image
