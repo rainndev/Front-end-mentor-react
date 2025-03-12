@@ -64,7 +64,7 @@ const TicketGeneratorMain = () => {
         src="/Front-end-mentor-react/conference-ticket-generator/assets/images/pattern-squiggly-line-bottom-mobile-tablet.svg "
         alt=""
       />
-      <div className=" text-white w-screen min-h-screen bg-[hsl(248,70%,10%)] bg-cover bg-no-repeat bg-center flex flex-col  items-center bg-[url(/Front-end-mentor-react/conference-ticket-generator/assets/images/pattern-lines.svg),url(/Front-end-mentor-react/conference-ticket-generator/assets/images/background-desktop.png)] font-[Inconsolata] p-4 ">
+      <div className=" text-white w-screen min-h-screen bg-[hsl(248,70%,10%)] bg-cover bg-no-repeat bg-center flex flex-col  items-center bg-[url(/Front-end-mentor-react/conference-ticket-generator/assets/images/pattern-lines.svg),url(/Front-end-mentor-react/conference-ticket-generator/assets/images/background-desktop.png)] font-[Inconsolata] px-4 py-20 ">
         {/* Top Info */}
         <div className="flex flex-col justify-center items-center mx-2 lg:mx-36 mt-20">
           <img
@@ -107,8 +107,8 @@ const TicketGeneratorMain = () => {
             >
               {/* Image icon for upload */}
               <div
-                className={`bg-[hsla(246,15%,58%,0.3)] border border-[hsl(245,15%,58%)] ${
-                  image ? "p-0 w-10 h-10" : "p-2"
+                className={`bg-[hsla(246,15%,58%,0.3)] border border-[hsla(246,15%,58%,0.3)] ${
+                  image ? "p-0 w-10 h-10" : "p-1"
                 } drop-shadow-2xl  rounded-lg mb-3 `}
               >
                 <img
@@ -126,16 +126,16 @@ const TicketGeneratorMain = () => {
                 // button for remove
                 <div
                   onClick={handleRemove}
-                  className="space-x-5 text-[hsl(252,6%,83%)]"
+                  className="space-x-2 md:space-x-5 text-[hsl(252,6%,83%)]"
                 >
-                  <button className="px-3 py-1 bg-[hsla(245,19%,35%,0.5)] rounded-md underline  hover:bg-[hsl(252,6%,83%,0.2)]">
+                  <button className="px-3 py-1 text-[clamp(0.5rem,3vw,.9rem)] bg-[hsla(245,19%,35%,0.5)] rounded-md underline  hover:bg-[hsl(252,6%,83%,0.2)]">
                     Remove image
                   </button>
 
                   {/* change avatar button */}
                   <button
                     onClick={handleClickUpload}
-                    className="px-3 py-1 bg-[hsla(245,19%,35%,0.5)] rounded-md hover:bg-[hsl(252,6%,83%,0.2)]"
+                    className="px-3 py-1 text-[clamp(0.5rem,3vw,.9rem)] bg-[hsla(245,19%,35%,0.5)] rounded-md hover:bg-[hsl(252,6%,83%,0.2)]"
                   >
                     Change image
                   </button>
