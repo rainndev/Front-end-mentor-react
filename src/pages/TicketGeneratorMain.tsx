@@ -141,7 +141,7 @@ const TicketGeneratorMain = () => {
                   </button>
                 </div>
               ) : (
-                <p className="text-gray-400 text-md text-center">
+                <p className="text-gray-400 text-[clamp(0.9rem,3vw,1rem)] text-center mx-4">
                   Drag and drop or click to upload
                 </p>
               )}
