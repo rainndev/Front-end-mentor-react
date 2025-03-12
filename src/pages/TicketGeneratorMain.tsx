@@ -37,39 +37,48 @@ const TicketGeneratorMain = () => {
   return (
     <>
       {/* This are assets in the background */}
+
+      <div className=""></div>
+
       <img
-        className="fixed -top-25  left-28 bg-cover opacity-70 "
+        className="fixed -top-25 -left-20 sm:left-0 md:left-28 w-44 h-44 sm:w-auto bg-cover opacity-70 "
         src="/Front-end-mentor-react/conference-ticket-generator/assets/images/pattern-circle.svg"
         alt=""
       />
 
       <img
-        className="fixed right-0 top-20 bg-cover"
+        className="fixed right-0 top-0 w-42  sm:w-auto sm:h-auto"
         src="/Front-end-mentor-react/conference-ticket-generator/assets/images/pattern-squiggly-line-top.svg"
         alt=""
       />
 
+      {/* squiggly image in bottom left - desktop */}
       <img
-        className="fixed left-0 bottom-0 "
-        src="/Front-end-mentor-react/conference-ticket-generator/assets/images/pattern-squiggly-line-bottom-desktop.svg"
+        className="fixed left-0 bottom-0 hidden sm:block  "
+        src="/Front-end-mentor-react/conference-ticket-generator/assets/images/pattern-squiggly-line-bottom-desktop.svg "
         alt=""
       />
 
-      <div className=" text-white w-screen h-screen bg-[hsl(248,70%,10%)] bg-cover bg-no-repeat bg-center flex flex-col justify-center items-center bg-[url(/Front-end-mentor-react/conference-ticket-generator/assets/images/pattern-lines.svg),url(/Front-end-mentor-react/conference-ticket-generator/assets/images/background-desktop.png)] font-[Inconsolata] p-8 ">
+      <img
+        className="fixed left-0 bottom-0 sm:hidden w-52"
+        src="/Front-end-mentor-react/conference-ticket-generator/assets/images/pattern-squiggly-line-bottom-mobile-tablet.svg "
+        alt=""
+      />
+      <div className=" text-white w-screen min-h-screen bg-[hsl(248,70%,10%)] bg-cover bg-no-repeat bg-center flex flex-col  items-center bg-[url(/Front-end-mentor-react/conference-ticket-generator/assets/images/pattern-lines.svg),url(/Front-end-mentor-react/conference-ticket-generator/assets/images/background-desktop.png)] font-[Inconsolata] p-4 ">
         {/* Top Info */}
-        <div className="flex flex-col justify-center items-center mx-36">
+        <div className="flex flex-col justify-center items-center mx-2 lg:mx-36 mt-20">
           <img
             src="/Front-end-mentor-react/conference-ticket-generator/assets/images/logo-full.svg"
             alt="Full logo"
-            className="mb-10 w-44"
+            className=" w-32 mb-7 md:w-44"
           />
 
-          <h1 className="text-5xl font-bold text-center text-pretty  mb-3">
+          <h1 className="text-[clamp(1.5rem,5vw,3rem)] font-bold text-center text-pretty  mb-3">
             Your Journey to Coding Conf <br />
             2025 Starts Here!
           </h1>
 
-          <p className="text-[hsl(252,6%,83%)] text-lg">
+          <p className="text-[hsl(252,6%,83%)] text-center text-[clamp(1rem,5vw,1.125rem)]">
             Secure your spot at next year's biggest coding conference.
           </p>
         </div>
@@ -210,7 +219,7 @@ const TicketGeneratorMain = () => {
           {/* Generate ticket button */}
           <button
             type="submit"
-            className="w-full bg-[hsl(7,88%,67%)] text-[hsl(248,70%,10%)] py-3 font-black rounded-xl hover:bg-[hsl(7,71%,60%)]"
+            className="w-full bg-[hsl(7,88%,67%)] text-[hsl(248,70%,10%)] py-3 font-black rounded-xl hover:bg-[hsl(7,71%,60%)] z-20"
           >
             Generate My Ticket
           </button>

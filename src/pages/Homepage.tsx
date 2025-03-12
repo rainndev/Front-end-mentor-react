@@ -6,9 +6,11 @@ const Homepage = () => {
     <div className="text-amber-300">
       <h1 className="text-5xl font-bold"> Frontend Mentor | Challenges</h1>
       <ul className="mt-5 list-disc list-inside text-2xl underline">
-        {challenges.map(({ title }) => (
+        {challenges.map(({ title }, i) => (
           <li>
-            <Link to={`/${title}`}>{title}</Link>
+            <Link key={i} to={`/${title}`}>
+              {title}
+            </Link>
           </li>
         ))}
       </ul>
