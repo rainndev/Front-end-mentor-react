@@ -1,6 +1,12 @@
+import React, { useCallback, useRef, useState, createContext } from "react";
 import TicketGeneratorForm from "../component/TicketGeneratorForm";
 
 const TicketGeneratorMain = () => {
+  const [image, setImage] = useState<string>("");
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+  const [github, setGithub] = useState("");
+
   return (
     <>
       {/* This are assets in the background */}
@@ -50,7 +56,16 @@ const TicketGeneratorMain = () => {
 
         {/* Form container */}
 
-        <TicketGeneratorForm />
+        <TicketGeneratorForm
+          image={image}
+          setImage={setImage}
+          name={name}
+          setName={setName}
+          email={email}
+          setEmail={setEmail}
+          github={github}
+          setGithub={setGithub}
+        />
       </div>
     </>
   );

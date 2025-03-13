@@ -1,12 +1,27 @@
-import React, { useCallback, useRef, useState } from "react";
+import React, { useCallback, useRef } from "react";
 
-const TicketGeneratorForm = () => {
+interface TicketGeneratorFormProps {
+  image: string;
+  setImage: (image: string) => void;
+  name: string;
+  setName: (name: string) => void;
+  email: string;
+  setEmail: (email: string) => void;
+  github: string;
+  setGithub: (github: string) => void;
+}
+
+const TicketGeneratorForm: React.FC<TicketGeneratorFormProps> = ({
+  image,
+  setImage,
+  name,
+  setName,
+  email,
+  setEmail,
+  github,
+  setGithub,
+}) => {
   const fileInputRef = useRef<HTMLInputElement>(null);
-  const [image, setImage] = useState<string>("");
-
-  const [name, setName] = useState("");
-  const [email, setEmail] = useState("");
-  const [github, setGithub] = useState("");
 
   const handleFileChanged = (event: any) => {
     const file = event.target.files[0];

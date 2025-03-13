@@ -1,9 +1,14 @@
+import { scan } from "react-scan"; // must be imported before React and React DOM
+
 import BlogPreviewCard from "./pages/BlogPreviewCard";
 import ResultsSummary from "./pages/ResultsSummary";
 import TicketGeneratorMain from "./pages/TicketGeneratorMain";
 import Accordion from "./pages/Accordion";
 import Homepage from "./pages/Homepage";
 import { Routes, Route } from "react-router-dom";
+scan({
+  enabled: true,
+});
 
 const App = () => {
   return (
