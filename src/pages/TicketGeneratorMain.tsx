@@ -34,6 +34,12 @@ const TicketGeneratorMain = () => {
       />
 
       <img
+        className="fixed bottom-25 right-0 w-44 h-44 sm:w-auto bg-cover opacity-70 "
+        src="/Front-end-mentor-react/conference-ticket-generator/assets/images/pattern-circle.svg"
+        alt=""
+      />
+
+      <img
         className="fixed right-0 top-0 w-42  sm:w-auto sm:h-auto"
         src="/Front-end-mentor-react/conference-ticket-generator/assets/images/pattern-squiggly-line-top.svg"
         alt=""
