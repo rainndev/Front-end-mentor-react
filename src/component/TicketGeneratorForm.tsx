@@ -23,6 +23,13 @@ const TicketGeneratorForm: React.FC<TicketGeneratorFormProps> = ({
 }) => {
   const fileInputRef = useRef<HTMLInputElement>(null);
   const [imgSizeError, setimgSizeError] = useState(false);
+  const [isEmailValid, setEmailValid] = useState(false);
+
+  const validateEmail = (email: string) => {
+    const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+    return emailRegex.test(email);
+  };
+
   const handleFileChanged = (event: any) => {
     const file = event.target.files[0];
     console.log("Filechange execute: onchanged");
@@ -181,13 +188,44 @@ const TicketGeneratorForm: React.FC<TicketGeneratorFormProps> = ({
         </label>
         <input
           value={email}
-          onChange={(e) => setEmail(e.target.value)}
+          onChange={(e) => {
+            setEmail(e.target.value);
+            validateEmail(email) ? setEmailValid(true) : setEmailValid(false);
+          }}
           autoComplete="off"
           placeholder="example@gmail.com"
           className="border-[hsl(245,15%,58%)] border py-3 rounded-xl bg-[hsla(245,19%,35%,0.3)] px-3 backdrop-blur-[2px]  hover:bg-[hsl(252,6%,83%,0.2)]"
           id="email"
           type="text"
         />
+
+        {!isEmailValid && email.length > 10 && (
+          <div
+            className={`flex space-x-2 mt-2 ${
+              !isEmailValid ? "text-red-400" : "text-[hsl(245,15%,58%)] "
+            }`}
+          >
+            <div
+              className="w-5 h-5 bg-current"
+              style={{
+                WebkitMaskImage:
+                  "url(/Front-end-mentor-react/conference-ticket-generator/assets/images/icon-info.svg)",
+                maskImage:
+                  "url(/Front-end-mentor-react/conference-ticket-generator/assets/images/icon-info.svg)",
+                WebkitMaskSize: "contain", // Prevents repeating
+                maskSize: "contain", // Ensures the whole SVG fits
+                WebkitMaskRepeat: "no-repeat",
+                maskRepeat: "no-repeat",
+                WebkitMaskPosition: "center",
+                maskPosition: "center",
+              }}
+            />
+
+            <p className="text-[clamp(.8rem,3vw,.875rem)] ">
+              Please enter a valid email adress.
+            </p>
+          </div>
+        )}
       </div>
 
       {/*  Github Username */}
