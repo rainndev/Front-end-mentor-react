@@ -1,4 +1,4 @@
-import React, { useCallback, useRef } from "react";
+import React, { useCallback, useRef, useState } from "react";
 
 interface TicketGeneratorFormProps {
   image: string;
@@ -22,7 +22,7 @@ const TicketGeneratorForm: React.FC<TicketGeneratorFormProps> = ({
   setGithub,
 }) => {
   const fileInputRef = useRef<HTMLInputElement>(null);
-
+  const [imgSizeError, setimgSizeError] = useState(false);
   const handleFileChanged = (event: any) => {
     const file = event.target.files[0];
     console.log("Filechange execute: onchanged");
@@ -33,6 +33,8 @@ const TicketGeneratorForm: React.FC<TicketGeneratorFormProps> = ({
         if (e.target?.result !== undefined) {
           if (typeof e.target.result === "string" && file.size <= 500000) {
             setImage(e.target.result);
+          } else {
+            setimgSizeError(true);
           }
         }
       };
@@ -69,7 +71,7 @@ const TicketGeneratorForm: React.FC<TicketGeneratorFormProps> = ({
           id="upload-avatar"
           onClick={() => !image && handleClickUpload()}
           className={`border-2 border-dashed border-[hsl(245,15%,58%)] rounded-xl py-4 bg-[hsla(245,19%,35%,0.3)] cursor-pointer flex flex-col items-center justify-center backdrop-blur-[2px]  ${
-            !image && "hover:bg-[hsl(252,6%,83%,0.2)] "
+            !image && "hover:bg-[hsl(252,6%,83%,0.2)]"
           } `}
         >
           {/* Image icon for upload */}
@@ -87,7 +89,6 @@ const TicketGeneratorForm: React.FC<TicketGeneratorFormProps> = ({
               alt="upload-avatar"
               className="w-full h-full rounded-lg bg-cover"
             />
-            ``
           </div>
 
           {image ? (
@@ -122,14 +123,31 @@ const TicketGeneratorForm: React.FC<TicketGeneratorFormProps> = ({
             accept="image/*"
           />
         </div>
-        <div className="flex space-x-2 mt-2">
-          <img
-            src="/Front-end-mentor-react/conference-ticket-generator/assets/images/icon-info.svg"
-            alt=""
+        <div
+          className={`flex space-x-2 mt-2 ${
+            imgSizeError ? "text-red-400" : "text-[hsl(245,15%,58%)] "
+          }`}
+        >
+          <div
+            className="w-5 h-5 bg-current"
+            style={{
+              WebkitMaskImage:
+                "url(/Front-end-mentor-react/conference-ticket-generator/assets/images/icon-info.svg)",
+              maskImage:
+                "url(/Front-end-mentor-react/conference-ticket-generator/assets/images/icon-info.svg)",
+              WebkitMaskSize: "contain", // Prevents repeating
+              maskSize: "contain", // Ensures the whole SVG fits
+              WebkitMaskRepeat: "no-repeat",
+              maskRepeat: "no-repeat",
+              WebkitMaskPosition: "center",
+              maskPosition: "center",
+            }}
           />
 
-          <p className=" text-[clamp(.8rem,3vw,.875rem)] text-[hsl(245,15%,58%)]">
-            Upload your photo (JPG or PNG, max size: 500KB).
+          <p className="text-[clamp(.8rem,3vw,.875rem)] ">
+            {imgSizeError
+              ? "File too large. Please upload a photo under 500KB."
+              : "Upload your photo (JPG or PNG, max size: 500KB)."}
           </p>
         </div>
       </div>
