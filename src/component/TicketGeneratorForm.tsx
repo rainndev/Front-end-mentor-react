@@ -9,6 +9,7 @@ interface TicketGeneratorFormProps {
   setEmail: (email: string) => void;
   github: string;
   setGithub: (github: string) => void;
+  setSubmitted: (submitted: boolean) => void;
 }
 
 const TicketGeneratorForm: React.FC<TicketGeneratorFormProps> = ({
@@ -20,6 +21,7 @@ const TicketGeneratorForm: React.FC<TicketGeneratorFormProps> = ({
   setEmail,
   github,
   setGithub,
+  setSubmitted,
 }) => {
   const fileInputRef = useRef<HTMLInputElement>(null);
   const [imgSizeError, setimgSizeError] = useState(false);
@@ -190,7 +192,7 @@ const TicketGeneratorForm: React.FC<TicketGeneratorFormProps> = ({
           value={email}
           onChange={(e) => {
             setEmail(e.target.value);
-            validateEmail(email) ? setEmailValid(true) : setEmailValid(false);
+            setEmailValid(validateEmail(email));
           }}
           autoComplete="off"
           placeholder="example@gmail.com"
@@ -199,7 +201,7 @@ const TicketGeneratorForm: React.FC<TicketGeneratorFormProps> = ({
           type="text"
         />
 
-        {!isEmailValid && email.length > 10 && (
+        {!isEmailValid && email.length > 5 && (
           <div
             className={`flex space-x-2 mt-2 ${
               !isEmailValid ? "text-red-400" : "text-[hsl(245,15%,58%)] "
@@ -249,7 +251,9 @@ const TicketGeneratorForm: React.FC<TicketGeneratorFormProps> = ({
 
       {/* Generate ticket button */}
       <button
-        type="submit"
+        onClick={() => {
+          if (!imgSizeError && isEmailValid) setSubmitted(true);
+        }}
         className="w-full bg-[hsl(7,88%,67%)] text-[hsl(248,70%,10%)] py-3 font-black rounded-xl hover:bg-[hsl(7,71%,60%)] z-20"
       >
         Generate My Ticket

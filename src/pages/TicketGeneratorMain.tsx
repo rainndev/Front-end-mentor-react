@@ -3,9 +3,10 @@ import TicketGeneratorForm from "../component/TicketGeneratorForm";
 
 const TicketGeneratorMain = () => {
   const [image, setImage] = useState<string>("");
-  const [name, setName] = useState("");
-  const [email, setEmail] = useState("");
-  const [github, setGithub] = useState("");
+  const [isSubmitted, setSubmitted] = useState<boolean>(false);
+  const [name, setName] = useState<string>("");
+  const [email, setEmail] = useState<string>("");
+  const [github, setGithub] = useState<string>("");
 
   return (
     <>
@@ -55,17 +56,21 @@ const TicketGeneratorMain = () => {
         </div>
 
         {/* Form container */}
-
-        <TicketGeneratorForm
-          image={image}
-          setImage={setImage}
-          name={name}
-          setName={setName}
-          email={email}
-          setEmail={setEmail}
-          github={github}
-          setGithub={setGithub}
-        />
+        {isSubmitted ? (
+          <p>The form is submitter</p>
+        ) : (
+          <TicketGeneratorForm
+            image={image}
+            setImage={setImage}
+            name={name}
+            setName={setName}
+            email={email}
+            setEmail={setEmail}
+            github={github}
+            setGithub={setGithub}
+            setSubmitted={setSubmitted}
+          />
+        )}
       </div>
     </>
   );
