@@ -33,6 +33,7 @@ const TicketGeneratorForm: React.FC<TicketGeneratorFormProps> = ({
         if (e.target?.result !== undefined) {
           if (typeof e.target.result === "string" && file.size <= 500000) {
             setImage(e.target.result);
+            setimgSizeError(false);
           } else {
             setimgSizeError(true);
           }
@@ -56,7 +57,7 @@ const TicketGeneratorForm: React.FC<TicketGeneratorFormProps> = ({
   console.log(name, email, github);
 
   return (
-    <form className="formContainer mt-10 flex flex-col w-full max-w-md space-y-5 ">
+    <form className="formContainer mt-10 flex flex-col w-full max-w-md space-y-5 z-30 ">
       {/* Avatar Uploader */}
       <div className="flex flex-col ">
         {/* Label for Upload avatar */}
@@ -185,7 +186,7 @@ const TicketGeneratorForm: React.FC<TicketGeneratorFormProps> = ({
           placeholder="example@gmail.com"
           className="border-[hsl(245,15%,58%)] border py-3 rounded-xl bg-[hsla(245,19%,35%,0.3)] px-3 backdrop-blur-[2px]  hover:bg-[hsl(252,6%,83%,0.2)]"
           id="email"
-          type="email"
+          type="text"
         />
       </div>
 
