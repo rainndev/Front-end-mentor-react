@@ -1,8 +1,12 @@
-import { useCallback, useRef, useState } from "react";
+import React, { useCallback, useRef, useState } from "react";
 
 const TicketGeneratorForm = () => {
   const fileInputRef = useRef<HTMLInputElement>(null);
   const [image, setImage] = useState<string>("");
+
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+  const [github, setGithub] = useState("");
 
   const handleFileChanged = (event: any) => {
     const file = event.target.files[0];
@@ -31,6 +35,8 @@ const TicketGeneratorForm = () => {
     console.log("Removing image...");
     setImage("");
   }, [setImage]);
+
+  console.log(name, email, github);
 
   return (
     <form
@@ -125,6 +131,8 @@ max-w-md space-y-5 "
           Full Name
         </label>
         <input
+          value={name}
+          onChange={(e) => setName(e.target.value)}
           autoComplete="off"
           className="border-[hsl(245,15%,58%)] border py-3 rounded-xl bg-[hsla(245,19%,35%,0.3)] px-3 backdrop-blur-[2px]"
           id="full-name"
@@ -140,6 +148,8 @@ max-w-md space-y-5 "
           Email Address
         </label>
         <input
+          value={email}
+          onChange={(e) => setEmail(e.target.value)}
           autoComplete="off"
           placeholder="example@gmail.com"
           className="border-[hsl(245,15%,58%)] border py-3 rounded-xl bg-[hsla(245,19%,35%,0.3)] px-3 backdrop-blur-[2px]  hover:bg-[hsl(252,6%,83%,0.2)]"
@@ -157,6 +167,8 @@ max-w-md space-y-5 "
           Github Username
         </label>
         <input
+          value={github}
+          onChange={(e) => setGithub(e.target.value)}
           autoComplete="off"
           placeholder="@yourusername"
           className="border-[hsl(245,15%,58%)] border py-3 rounded-xl bg-[hsla(245,19%,35%,0.3)] px-3 backdrop-blur-[2px]  hover:bg-[hsl(252,6%,83%,0.2)]"
@@ -176,4 +188,4 @@ max-w-md space-y-5 "
   );
 };
 
-export default TicketGeneratorForm;
+export default React.memo(TicketGeneratorForm);
