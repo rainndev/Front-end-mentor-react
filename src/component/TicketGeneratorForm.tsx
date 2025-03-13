@@ -54,10 +54,7 @@ const TicketGeneratorForm: React.FC<TicketGeneratorFormProps> = ({
   console.log(name, email, github);
 
   return (
-    <form
-      className="formContainer mt-10 flex flex-col w-full 
-max-w-md space-y-5 "
-    >
+    <form className="formContainer mt-10 flex flex-col w-full max-w-md space-y-5 ">
       {/* Avatar Uploader */}
       <div className="flex flex-col ">
         {/* Label for Upload avatar */}
@@ -90,6 +87,7 @@ max-w-md space-y-5 "
               alt="upload-avatar"
               className="w-full h-full rounded-lg bg-cover"
             />
+            ``
           </div>
 
           {image ? (
