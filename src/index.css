@@ -5,3 +5,7 @@
 .formContainer input {
   @apply focus:outline-none focus:ring-2  focus:ring-[hsl(245,15%,58%)] focus:ring-offset-2 focus:ring-offset-[hsl(248,70%,10%)] hover:bg-[hsl(252,6%,83%,0.2)] font-[Inconsolata];
 }
+
+/* * {
+  border: 1px solid red;
+} */
