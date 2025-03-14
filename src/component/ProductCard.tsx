@@ -29,10 +29,10 @@ const ProductCard = ({ productData }: ProductProps) => {
           <div className="bg-white py-2 px-5 rounded-full w-fit flex  font-medium border border-[hsl(7,20%,60%)]">
             <img
               src="/Front-end-mentor-react/product-list/images/icon-add-to-cart.svg"
-              className="mr-2 w-5"
+              className="mr-2 w-4"
               alt=""
             />
-            <p className="text-sm text-[hsl(14,65%,9%)] font-semibold">
+            <p className="text-xs text-[hsl(14,65%,9%)] font-semibold align-middle">
               Add to cart
             </p>
           </div>
