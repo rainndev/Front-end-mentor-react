@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useCallback, useState } from "react";
 import TicketGeneratorForm from "../component/TicketGeneratorForm";
 import TicketCard from "../component/TicketCard";
 
@@ -10,7 +10,7 @@ const TicketGeneratorMain = () => {
   const [github, setGithub] = useState<string>("");
 
   // get the current date
-  function getFormattedDate() {
+  const getFormattedDate = useCallback(() => {
     const date = new Date();
 
     const options: Intl.DateTimeFormatOptions = {
@@ -22,7 +22,7 @@ const TicketGeneratorMain = () => {
 
     // Ensure the format includes a comma (Jan 31, 2025)
     return formattedDate.replace(/(\d{1,2}) (\d{4})/, "$1, $2");
-  }
+  }, []);
 
   return (
     <>
