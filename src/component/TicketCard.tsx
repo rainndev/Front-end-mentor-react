@@ -1,3 +1,5 @@
+import { motion } from "framer-motion";
+
 interface TicketPropTypes {
   github: string;
   image: string;
@@ -12,7 +14,17 @@ const TicketCard = ({
   getFormattedDate,
 }: TicketPropTypes) => {
   return (
-    <div className="w-full h-fit flex justify-center items-center mt-10 md:mt-20 overflow-hidden">
+    <motion.div
+      initial={{
+        opacity: 0,
+        y: 50,
+      }}
+      whileInView={{
+        opacity: 1,
+        y: 0,
+      }}
+      className="w-full h-fit flex justify-center items-center mt-10 md:mt-20 overflow-hidden"
+    >
       <div className="h-fit w-xl relative">
         <img
           className="w-full"
@@ -65,7 +77,7 @@ const TicketCard = ({
           </div>
         </div>
       </div>
-    </div>
+    </motion.div>
   );
 };
 

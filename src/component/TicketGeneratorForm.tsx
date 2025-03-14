@@ -222,7 +222,7 @@ const TicketGeneratorForm: React.FC<TicketGeneratorFormProps> = ({
           type="text"
         />
 
-        {!isEmailValid && email.length > 5 && (
+        {!isEmailValid && email.length > 1 && (
           <motion.div
             variants={errorVariants}
             initial="hidden"
