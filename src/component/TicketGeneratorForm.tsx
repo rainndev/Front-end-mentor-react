@@ -28,6 +28,7 @@ const TicketGeneratorForm: React.FC<TicketGeneratorFormProps> = ({
   const fileInputRef = useRef<HTMLInputElement>(null);
   const [imgSizeError, setimgSizeError] = useState(false);
   const [isEmailValid, setEmailValid] = useState(false);
+  const { name, email, github } = formData;
 
   const errorVariants = {
     hidden: {
@@ -77,7 +78,7 @@ const TicketGeneratorForm: React.FC<TicketGeneratorFormProps> = ({
     setFormData({ ...formData, image: "" });
   }, [formData]);
 
-  console.log(formData.name, formData.email, formData.github);
+  console.log(name, email, github);
 
   return (
     <form className="formContainer mt-10 flex flex-col w-full max-w-md space-y-5 z-30 ">
@@ -192,7 +193,7 @@ const TicketGeneratorForm: React.FC<TicketGeneratorFormProps> = ({
           Full Name
         </label>
         <input
-          value={formData.name}
+          value={name}
           onChange={(e) => setFormData({ ...formData, name: e.target.value })}
           autoComplete="off"
           className="border-[hsl(245,15%,58%)] border py-3 rounded-xl bg-[hsla(245,19%,35%,0.3)] px-3 backdrop-blur-[2px]"
@@ -209,10 +210,10 @@ const TicketGeneratorForm: React.FC<TicketGeneratorFormProps> = ({
           Email Address
         </label>
         <input
-          value={formData.email}
+          value={email}
           onChange={(e) => {
             setFormData({ ...formData, email: e.target.value });
-            setEmailValid(validateEmail(formData.email));
+            setEmailValid(validateEmail(email));
           }}
           autoComplete="off"
           placeholder="example@gmail.com"
@@ -221,7 +222,7 @@ const TicketGeneratorForm: React.FC<TicketGeneratorFormProps> = ({
           type="text"
         />
 
-        {!isEmailValid && formData.email.length > 5 && (
+        {!isEmailValid && email.length > 5 && (
           <motion.div
             variants={errorVariants}
             initial="hidden"
@@ -265,7 +266,7 @@ const TicketGeneratorForm: React.FC<TicketGeneratorFormProps> = ({
           Github Username
         </label>
         <input
-          value={formData.github}
+          value={github}
           onChange={(e) => setFormData({ ...formData, github: e.target.value })}
           autoComplete="off"
           placeholder="@yourusername"
