@@ -6,9 +6,9 @@ import TicketGeneratorMain from "./pages/TicketGeneratorMain";
 import Accordion from "./pages/Accordion";
 import Homepage from "./pages/Homepage";
 import { Routes, Route } from "react-router-dom";
-scan({
-  enabled: true,
-});
+// scan({
+//   enabled: false,
+// });
 
 const App = () => {
   return (
