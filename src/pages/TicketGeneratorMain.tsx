@@ -11,6 +11,8 @@ const TicketGeneratorMain = () => {
     isSubmitted: false,
   });
 
+  const { name, email, github, isSubmitted } = formData;
+
   // get the current date
   const getFormattedDate = useMemo(() => {
     const date = new Date();
@@ -70,11 +72,11 @@ const TicketGeneratorMain = () => {
           />
 
           <h1 className="text-[clamp(1.5rem,5vw,3rem)] font-bold text-center text-pretty  mb-3">
-            {formData.isSubmitted ? (
+            {isSubmitted ? (
               <p>
                 Congrats,{" "}
                 <span className=" bg-gradient-to-r from-[hsl(7,86%,67%)] to-[hsl(0,0%,100%)] bg-clip-text text-transparent">
-                  {formData.name}
+                  {name}
                 </span>
                 ! Your ticket is ready
               </p>
@@ -84,11 +86,11 @@ const TicketGeneratorMain = () => {
           </h1>
 
           <p className="text-[hsl(252,6%,83%)] text-center text-[clamp(1rem,2vw,1.125rem)] px-4 sm:px-8 md:px-16">
-            {formData.isSubmitted ? (
+            {isSubmitted ? (
               <p>
                 We've emailed your ticket to{" "}
-                <span className="text-[hsl(7,71%,60%)]">{formData.email}</span>{" "}
-                and will send updates in the run up to the event.
+                <span className="text-[hsl(7,71%,60%)]">{email}</span> and will
+                send updates in the run up to the event.
               </p>
             ) : (
               "Secure your spot at next year's biggest coding conference."
@@ -97,11 +99,11 @@ const TicketGeneratorMain = () => {
         </div>
 
         {/* Ticket and Form container */}
-        {formData.isSubmitted ? (
+        {isSubmitted ? (
           <TicketCard
-            github={formData.github}
+            github={github}
             image={formData.image}
-            name={formData.name}
+            name={name}
             getFormattedDate={getFormattedDate}
           />
         ) : (
