@@ -11,7 +11,7 @@ const TicketGeneratorMain = () => {
     isSubmitted: false,
   });
 
-  const { name, email, github, isSubmitted } = formData;
+  const { name, email, image, github, isSubmitted } = formData;
 
   // get the current date
   const getFormattedDate = useMemo(() => {
@@ -102,7 +102,7 @@ const TicketGeneratorMain = () => {
         {isSubmitted ? (
           <TicketCard
             github={github}
-            image={formData.image}
+            image={image}
             name={name}
             getFormattedDate={getFormattedDate}
           />

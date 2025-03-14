@@ -251,7 +251,7 @@ const TicketGeneratorForm: React.FC<TicketGeneratorFormProps> = ({
             />
 
             <p className="text-[clamp(.8rem,3vw,.875rem)] ">
-              Please enter a valid email adress.
+              Please enter a valid email address.
             </p>
           </motion.div>
         )}
