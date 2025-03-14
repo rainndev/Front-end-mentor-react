@@ -2,27 +2,28 @@ import React, { useCallback, useRef, useState } from "react";
 import { motion } from "framer-motion";
 
 interface TicketGeneratorFormProps {
-  image: string;
-  setImage: (image: string) => void;
-  name: string;
-  setName: (name: string) => void;
-  email: string;
-  setEmail: (email: string) => void;
-  github: string;
-  setGithub: (github: string) => void;
-  setSubmitted: (submitted: boolean) => void;
+  formData: {
+    image: string;
+    name: string;
+    email: string;
+    github: string;
+    isSubmitted: boolean;
+  };
+
+  setFormData: React.Dispatch<
+    React.SetStateAction<{
+      image: string;
+      name: string;
+      email: string;
+      github: string;
+      isSubmitted: boolean;
+    }>
+  >;
 }
 
 const TicketGeneratorForm: React.FC<TicketGeneratorFormProps> = ({
-  image,
-  setImage,
-  name,
-  setName,
-  email,
-  setEmail,
-  github,
-  setGithub,
-  setSubmitted,
+  formData,
+  setFormData,
 }) => {
   const fileInputRef = useRef<HTMLInputElement>(null);
   const [imgSizeError, setimgSizeError] = useState(false);
@@ -54,7 +55,7 @@ const TicketGeneratorForm: React.FC<TicketGeneratorFormProps> = ({
       reader.onload = (e) => {
         if (e.target?.result !== undefined) {
           if (typeof e.target.result === "string" && file.size <= 500000) {
-            setImage(e.target.result);
+            setFormData({ ...formData, image: e.target.result });
             setimgSizeError(false);
           } else {
             setimgSizeError(true);
@@ -69,14 +70,14 @@ const TicketGeneratorForm: React.FC<TicketGeneratorFormProps> = ({
     if (fileInputRef.current) {
       fileInputRef.current.click(); // Open file picker
     }
-  }, [setImage]);
+  }, [formData]);
 
   const handleRemove = useCallback(() => {
     console.log("Removing image...");
-    setImage("");
-  }, [setImage]);
+    setFormData({ ...formData, image: "" });
+  }, [formData]);
 
-  console.log(name, email, github);
+  console.log(formData.name, formData.email, formData.github);
 
   return (
     <form className="formContainer mt-10 flex flex-col w-full max-w-md space-y-5 z-30 ">
@@ -92,21 +93,21 @@ const TicketGeneratorForm: React.FC<TicketGeneratorFormProps> = ({
 
         <div
           id="upload-avatar"
-          onClick={() => !image && handleClickUpload()}
+          onClick={() => !formData.image && handleClickUpload()}
           className={`border-2 border-dashed border-[hsl(245,15%,58%)] rounded-xl py-4 bg-[hsla(245,19%,35%,0.3)] cursor-pointer flex flex-col items-center justify-center backdrop-blur-[2px]  ${
-            !image && "hover:bg-[hsl(252,6%,83%,0.2)]"
+            !formData.image && "hover:bg-[hsl(252,6%,83%,0.2)]"
           } `}
         >
           {/* Image icon for upload */}
           <div
             className={`bg-[hsla(246,15%,58%,0.3)] border border-[hsla(246,15%,58%,0.3)] ${
-              image ? "p-0 w-10 h-10" : "p-1"
+              formData.image ? "p-0 w-10 h-10" : "p-1"
             } drop-shadow-2xl  rounded-lg mb-3 `}
           >
             <img
               src={
-                image
-                  ? image
+                formData.image
+                  ? formData.image
                   : "/Front-end-mentor-react/conference-ticket-generator/assets/images/icon-upload.svg"
               }
               alt="upload-avatar"
@@ -114,7 +115,7 @@ const TicketGeneratorForm: React.FC<TicketGeneratorFormProps> = ({
             />
           </div>
 
-          {image ? (
+          {formData.image ? (
             // button for remove
             <div
               onClick={handleRemove}
@@ -191,8 +192,8 @@ const TicketGeneratorForm: React.FC<TicketGeneratorFormProps> = ({
           Full Name
         </label>
         <input
-          value={name}
-          onChange={(e) => setName(e.target.value)}
+          value={formData.name}
+          onChange={(e) => setFormData({ ...formData, name: e.target.value })}
           autoComplete="off"
           className="border-[hsl(245,15%,58%)] border py-3 rounded-xl bg-[hsla(245,19%,35%,0.3)] px-3 backdrop-blur-[2px]"
           id="full-name"
@@ -208,10 +209,10 @@ const TicketGeneratorForm: React.FC<TicketGeneratorFormProps> = ({
           Email Address
         </label>
         <input
-          value={email}
+          value={formData.email}
           onChange={(e) => {
-            setEmail(e.target.value);
-            setEmailValid(validateEmail(email));
+            setFormData({ ...formData, email: e.target.value });
+            setEmailValid(validateEmail(formData.email));
           }}
           autoComplete="off"
           placeholder="example@gmail.com"
@@ -220,7 +221,7 @@ const TicketGeneratorForm: React.FC<TicketGeneratorFormProps> = ({
           type="text"
         />
 
-        {!isEmailValid && email.length > 5 && (
+        {!isEmailValid && formData.email.length > 5 && (
           <motion.div
             variants={errorVariants}
             initial="hidden"
@@ -264,8 +265,8 @@ const TicketGeneratorForm: React.FC<TicketGeneratorFormProps> = ({
           Github Username
         </label>
         <input
-          value={github}
-          onChange={(e) => setGithub(e.target.value)}
+          value={formData.github}
+          onChange={(e) => setFormData({ ...formData, github: e.target.value })}
           autoComplete="off"
           placeholder="@yourusername"
           className="border-[hsl(245,15%,58%)] border py-3 rounded-xl bg-[hsla(245,19%,35%,0.3)] px-3 backdrop-blur-[2px]  hover:bg-[hsl(252,6%,83%,0.2)]"
@@ -277,7 +278,8 @@ const TicketGeneratorForm: React.FC<TicketGeneratorFormProps> = ({
       {/* Generate ticket button */}
       <button
         onClick={() => {
-          if (!imgSizeError && isEmailValid) setSubmitted(true);
+          if (!imgSizeError && isEmailValid)
+            setFormData({ ...formData, isSubmitted: true });
         }}
         className="w-full bg-[hsl(7,88%,67%)] text-[hsl(248,70%,10%)] py-3 font-black rounded-xl hover:bg-[hsl(7,71%,60%)] z-20"
       >

@@ -2,7 +2,7 @@ interface TicketPropTypes {
   github: string;
   image: string;
   name: string;
-  getFormattedDate: () => string;
+  getFormattedDate: string;
 }
 
 const TicketCard = ({
@@ -36,7 +36,7 @@ const TicketCard = ({
               <h1 className="font-bold text-[clamp(1.3rem,4vw,2.4rem)]">
                 Coding Conf
               </h1>
-              <p className="text-[clamp(.7rem,3vw,1rem)] text-[hsl(252,6%,83%)]">{`${getFormattedDate()} / Austin, TX`}</p>
+              <p className="text-[clamp(.7rem,3vw,1rem)] text-[hsl(252,6%,83%)]">{`${getFormattedDate} / Austin, TX`}</p>
             </div>
           </div>
 
