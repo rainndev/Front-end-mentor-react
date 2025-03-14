@@ -1,4 +1,5 @@
 import React, { useCallback, useRef, useState } from "react";
+import { motion } from "framer-motion";
 
 interface TicketGeneratorFormProps {
   image: string;
@@ -26,6 +27,18 @@ const TicketGeneratorForm: React.FC<TicketGeneratorFormProps> = ({
   const fileInputRef = useRef<HTMLInputElement>(null);
   const [imgSizeError, setimgSizeError] = useState(false);
   const [isEmailValid, setEmailValid] = useState(false);
+
+  const errorAnimation = {
+    hidden: {
+      x: 0,
+      opacity: 0,
+    },
+
+    play: {
+      x: [0, -2, 2, 0],
+      opacity: 1,
+    },
+  };
 
   const validateEmail = (email: string) => {
     const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
@@ -133,7 +146,13 @@ const TicketGeneratorForm: React.FC<TicketGeneratorFormProps> = ({
             accept="image/*"
           />
         </div>
-        <div
+        <motion.div
+          variants={errorAnimation}
+          initial={imgSizeError ? "hidden" : { opacity: 1 }}
+          animate={imgSizeError ? "play" : ""}
+          transition={{
+            duration: 0.25,
+          }}
           className={`flex space-x-2 mt-2 ${
             imgSizeError ? "text-red-400" : "text-[hsl(245,15%,58%)] "
           }`}
@@ -159,7 +178,7 @@ const TicketGeneratorForm: React.FC<TicketGeneratorFormProps> = ({
               ? "File too large. Please upload a photo under 500KB."
               : "Upload your photo (JPG or PNG, max size: 500KB)."}
           </p>
-        </div>
+        </motion.div>
       </div>
 
       {/* Full name */}
@@ -202,7 +221,13 @@ const TicketGeneratorForm: React.FC<TicketGeneratorFormProps> = ({
         />
 
         {!isEmailValid && email.length > 5 && (
-          <div
+          <motion.div
+            variants={errorAnimation}
+            initial="hidden"
+            whileInView="play"
+            transition={{
+              duration: 0.25,
+            }}
             className={`flex space-x-2 mt-2 ${
               !isEmailValid ? "text-red-400" : "text-[hsl(245,15%,58%)] "
             }`}
@@ -226,7 +251,7 @@ const TicketGeneratorForm: React.FC<TicketGeneratorFormProps> = ({
             <p className="text-[clamp(.8rem,3vw,.875rem)] ">
               Please enter a valid email adress.
             </p>
-          </div>
+          </motion.div>
         )}
       </div>
 
