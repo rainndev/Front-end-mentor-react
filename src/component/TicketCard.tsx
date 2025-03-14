@@ -53,7 +53,6 @@ const TicketCard = ({
           </div>
 
           {/* Bottom info */}
-
           <div className=" h-[30%] w-full flex  ">
             {/* Bottom left info */}
             <img
@@ -74,6 +73,11 @@ const TicketCard = ({
                 </p>
               </div>
             </div>
+          </div>
+
+          {/* ticket hex */}
+          <div className="absolute right-0 h-fit flex items-center rotate-90 text-[clamp(1.3rem,4vw,1.875rem)] text-[#8784a5]">
+            #01609
           </div>
         </div>
       </div>
