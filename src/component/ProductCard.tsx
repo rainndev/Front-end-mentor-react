@@ -34,8 +34,10 @@ const ProductCard = ({ productData }: ProductProps) => {
 
       {/* Product Info */}
       <div className="h-fit py-8">
-        <p>{productData.category}</p>
-        <p className="font-bold">{productData.name}</p>
+        <p className="text-sm text-[hsl(7,20%,60%)]">{productData.category}</p>
+        <p className="font-semibold text-[hsl(14,65%,9%)]">
+          {productData.name}
+        </p>
         <p className="font-semibold text-[hsl(14,86%,42%)]">
           ${productData.price.toFixed(2)}
         </p>
