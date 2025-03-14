@@ -28,7 +28,7 @@ const TicketGeneratorForm: React.FC<TicketGeneratorFormProps> = ({
   const [imgSizeError, setimgSizeError] = useState(false);
   const [isEmailValid, setEmailValid] = useState(false);
 
-  const errorAnimation = {
+  const errorVariants = {
     hidden: {
       x: 0,
       opacity: 0,
@@ -147,7 +147,7 @@ const TicketGeneratorForm: React.FC<TicketGeneratorFormProps> = ({
           />
         </div>
         <motion.div
-          variants={errorAnimation}
+          variants={errorVariants}
           initial={imgSizeError ? "hidden" : { opacity: 1 }}
           animate={imgSizeError ? "play" : ""}
           transition={{
@@ -222,7 +222,7 @@ const TicketGeneratorForm: React.FC<TicketGeneratorFormProps> = ({
 
         {!isEmailValid && email.length > 5 && (
           <motion.div
-            variants={errorAnimation}
+            variants={errorVariants}
             initial="hidden"
             whileInView="play"
             transition={{
