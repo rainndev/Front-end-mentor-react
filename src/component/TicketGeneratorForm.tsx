@@ -1,5 +1,5 @@
 import React, { useCallback, useRef, useState } from "react";
-import { motion } from "framer-motion";
+import { AnimatePresence, motion } from "framer-motion";
 
 interface TicketGeneratorFormProps {
   formData: {
@@ -222,39 +222,42 @@ const TicketGeneratorForm: React.FC<TicketGeneratorFormProps> = ({
           type="text"
         />
 
-        {!isEmailValid && email.length > 1 && (
-          <motion.div
-            variants={errorVariants}
-            initial="hidden"
-            whileInView="play"
-            transition={{
-              duration: 0.25,
-            }}
-            className={`flex space-x-2 mt-2 ${
-              !isEmailValid ? "text-red-400" : "text-[hsl(245,15%,58%)] "
-            }`}
-          >
-            <div
-              className="w-5 h-5 bg-current"
-              style={{
-                WebkitMaskImage:
-                  "url(/Front-end-mentor-react/conference-ticket-generator/assets/images/icon-info.svg)",
-                maskImage:
-                  "url(/Front-end-mentor-react/conference-ticket-generator/assets/images/icon-info.svg)",
-                WebkitMaskSize: "contain", // Prevents repeating
-                maskSize: "contain", // Ensures the whole SVG fits
-                WebkitMaskRepeat: "no-repeat",
-                maskRepeat: "no-repeat",
-                WebkitMaskPosition: "center",
-                maskPosition: "center",
+        <AnimatePresence>
+          {!isEmailValid && email.length > 1 && (
+            <motion.div
+              variants={errorVariants}
+              initial="hidden"
+              whileInView="play"
+              exit="hidden"
+              transition={{
+                duration: 0.25,
               }}
-            />
+              className={`flex space-x-2 mt-2 ${
+                !isEmailValid ? "text-red-400" : "text-[hsl(245,15%,58%)] "
+              }`}
+            >
+              <div
+                className="w-5 h-5 bg-current"
+                style={{
+                  WebkitMaskImage:
+                    "url(/Front-end-mentor-react/conference-ticket-generator/assets/images/icon-info.svg)",
+                  maskImage:
+                    "url(/Front-end-mentor-react/conference-ticket-generator/assets/images/icon-info.svg)",
+                  WebkitMaskSize: "contain", // Prevents repeating
+                  maskSize: "contain", // Ensures the whole SVG fits
+                  WebkitMaskRepeat: "no-repeat",
+                  maskRepeat: "no-repeat",
+                  WebkitMaskPosition: "center",
+                  maskPosition: "center",
+                }}
+              />
 
-            <p className="text-[clamp(.8rem,3vw,.875rem)] ">
-              Please enter a valid email address.
-            </p>
-          </motion.div>
-        )}
+              <p className="text-[clamp(.8rem,3vw,.875rem)] ">
+                Please enter a valid email address.
+              </p>
+            </motion.div>
+          )}
+        </AnimatePresence>
       </div>
 
       {/*  Github Username */}
