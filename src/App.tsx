@@ -6,6 +6,7 @@ import TicketGeneratorMain from "./pages/TicketGeneratorMain";
 import Accordion from "./pages/Accordion";
 import Homepage from "./pages/Homepage";
 import { Routes, Route } from "react-router-dom";
+import ProductList from "./pages/ProductList";
 // scan({
 //   enabled: false,
 // });
@@ -22,6 +23,7 @@ const App = () => {
           path="/conference-ticket-generator"
           element={<TicketGeneratorMain />}
         />
+        <Route path="/product-list" element={<ProductList />} />
       </Routes>
     </div>
   );

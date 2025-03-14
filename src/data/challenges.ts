@@ -7,4 +7,5 @@ export const challenges: challengesType[] = [
   { title: "blog-preview-card" },
   { title: "results-summary" },
   { title: "conference-ticket-generator" },
+  { title: "product-list" },
 ];
