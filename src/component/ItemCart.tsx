@@ -45,12 +45,21 @@ const ItemCart = () => {
 
             {/* Remove product button */}
             <div className="flex justify-center items-center">
-              <img
+              <div
                 onClick={() => removeFromCart(data.id)}
-                className="rounded-full border-[hsl(7,20%,60%)]  border w-4 h-4 p-[2px] cursor-pointer"
-                src="/Front-end-mentor-react/product-list/images/icon-remove-item.svg"
-                alt="remove-icon"
-              />
+                className="rounded-full border-[hsl(7,20%,60%)]  border w-4 h-4 p-[2px] cursor-pointer group hover:border-black "
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="10"
+                  height="10"
+                  fill="currentColor"
+                  className="text-[hsl(7,20%,60%)] group-hover:text-black transition"
+                  viewBox="0 0 10 10"
+                >
+                  <path d="M8.375 9.375 5 6 1.625 9.375l-1-1L4 5 .625 1.625l1-1L5 4 8.375.625l1 1L6 5l3.375 3.375-1 1Z" />
+                </svg>
+              </div>
             </div>
           </motion.div>
         ))}
