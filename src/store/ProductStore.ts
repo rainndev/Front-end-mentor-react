@@ -20,6 +20,7 @@ interface ProductCreateTypes {
   decreaseItem: (id: number) => void;
   removeFromCart: (id: number) => void;
   getQuantity: (id: number) => number;
+  resetCart: () => void;
 }
 
 const useProductStore = create<ProductCreateTypes>((set, get) => ({
@@ -62,6 +63,10 @@ const useProductStore = create<ProductCreateTypes>((set, get) => ({
   getQuantity: (id) => {
     const product = get().cart.find((p) => p.id === id);
     return product ? product.quantity : 0;
+  },
+
+  resetCart: () => {
+    set({ cart: [] });
   },
 }));
 

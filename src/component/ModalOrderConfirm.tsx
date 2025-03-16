@@ -7,7 +7,7 @@ interface ModelOrderTypes {
 }
 
 const ModalOrderConfirm = ({ setIsShowing, isShowing }: ModelOrderTypes) => {
-  const { cart } = useProductStore();
+  const { cart, resetCart } = useProductStore();
 
   const totalPrice = useMemo(() => {
     return cart.reduce((total, data) => total + data.quantity * data.price, 0);
@@ -75,7 +75,10 @@ const ModalOrderConfirm = ({ setIsShowing, isShowing }: ModelOrderTypes) => {
             </div>
           ))}
         </div>
-        <div className="mt-7 w-full rounded-full p-3 bg-[hsl(14,86%,42%)] text-[hsl(20,50%,98%)] text-sm cursor-pointer text-center font-medium">
+        <div
+          onClick={resetCart}
+          className="mt-7 w-full rounded-full p-3 bg-[hsl(14,86%,42%)] text-[hsl(20,50%,98%)] text-sm cursor-pointer text-center font-medium"
+        >
           Start New Order
         </div>
       </div>
