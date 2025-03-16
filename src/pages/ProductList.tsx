@@ -5,7 +5,6 @@ import useProductStore from "../store/ProductStore";
 const ProductList = () => {
   const { cart } = useProductStore();
 
-  console.log(cart);
   return (
     <div className="w-screen min-h-screen bg-[hsl(20,50%,98%)] text-[#212121] font-[Red_hat_text] flex justify-center items-center  ">
       <div className="grid grid-cols-1 md:grid-cols-[65%_35%] w-full  max-w-6xl ">

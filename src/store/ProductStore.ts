@@ -19,25 +19,27 @@ interface ProductCreateTypes {
   addToCart: (product: ProductTypes) => void;
   decreaseItem: (id: number) => void;
   removeFromCart: (id: number) => void;
+  getQuantity: (id: number) => number;
 }
 
-const useProductStore = create<ProductCreateTypes>((set) => ({
+const useProductStore = create<ProductCreateTypes>((set, get) => ({
   cart: [],
 
   addToCart: (product) =>
-    set((state) => {
-      const isExistProduct = state.cart.find((data) => data.id === product.id);
+    set(() => {
+      const cart = get().cart; // Use get() to get latest state
+      const isExistProduct = cart.find((data) => data.id === product.id);
 
       if (isExistProduct) {
         return {
-          cart: state.cart.map((data) =>
+          cart: cart.map((data) =>
             data.id === product.id
               ? { ...data, quantity: data.quantity + 1 }
               : data
           ),
         };
       } else {
-        return { cart: [...state.cart, { ...product, quantity: 1 }] };
+        return { cart: [...cart, { ...product, quantity: 1 }] };
       }
     }),
 
@@ -56,6 +58,11 @@ const useProductStore = create<ProductCreateTypes>((set) => ({
     set((state) => ({
       cart: state.cart.filter((product) => product.id !== id),
     })),
+
+  getQuantity: (id) => {
+    const product = get().cart.find((p) => p.id === id);
+    return product ? product.quantity : 0;
+  },
 }));
 
 export default useProductStore;
