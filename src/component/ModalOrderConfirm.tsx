@@ -35,7 +35,7 @@ const ModalOrderConfirm = ({ setIsShowing, isShowing }: ModelOrderTypes) => {
         {/* Product items */}
         <div className="bg-[hsl(20,50%,98%)] mt-5 rounded-xl ">
           {cart.map((data, index) => (
-            <>
+            <div key={index}>
               <div className="flex justify-between p-5 ">
                 <div className="flex">
                   <img
@@ -72,7 +72,7 @@ const ModalOrderConfirm = ({ setIsShowing, isShowing }: ModelOrderTypes) => {
                   <p className="text-xl font-bold">${totalPrice.toFixed(2)}</p>
                 </div>
               )}
-            </>
+            </div>
           ))}
         </div>
         <div className="mt-7 w-full rounded-full p-3 bg-[hsl(14,86%,42%)] text-[hsl(20,50%,98%)] text-sm cursor-pointer text-center font-medium">
