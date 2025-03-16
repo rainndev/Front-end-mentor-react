@@ -4,7 +4,7 @@ import useProductStore from "../store/ProductStore";
 import ItemCart from "../component/ItemCart";
 
 const ProductList = () => {
-  const { cart, removeFromCart } = useProductStore();
+  const { cart } = useProductStore();
 
   return (
     <div className="w-screen min-h-screen bg-[hsl(20,50%,98%)] text-[#212121] font-[Red_hat_text] flex justify-center items-center  ">
@@ -21,17 +21,17 @@ const ProductList = () => {
         </div>
         {/* Right container */}
         <div className="w-full p-8">
-          <div className="bg-white p-4 rounded-2xl">
+          <div className="bg-white p-6 rounded-2xl">
             <h1 className="text-[hsl(14,86%,42%)] font-bold text-xl">
               Your cart ({cart.length})
             </h1>
-            <div className="w-full flex flex-col justify-center items-center p-5">
+            <div className="w-full flex flex-col justify-center items-center ">
               {cart.length > 0 ? (
                 <div className="w-full ">
                   <ItemCart />
                 </div>
               ) : (
-                <>
+                <div className="m-10 flex flex-col justify-between items-center">
                   <img
                     src="/Front-end-mentor-react/product-list/images/illustration-empty-cart.svg"
                     alt=""
@@ -39,7 +39,7 @@ const ProductList = () => {
                   <p className="text-sm font-semibold text-[hsl(12,20%,44%)]">
                     Your added items will appear here
                   </p>
-                </>
+                </div>
               )}
             </div>
           </div>
