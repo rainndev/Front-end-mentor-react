@@ -11,7 +11,7 @@ const ItemCart = () => {
   return (
     <div className="w-full mt-2">
       {cart.map((data, i) => (
-        <div className="py-4 border-b" key={i}>
+        <div className="py-4 border-b border-[hsl(13,31%,94%)]" key={i}>
           <p className="text-sm font-semibold text-[hsl(14,65%,9%)]">
             {data.name}
           </p>
@@ -29,17 +29,11 @@ const ItemCart = () => {
             </div>
 
             <img
-              className="rounded-full border-[hsl(7,20%,60%)]  border w-4 h-4 p-[2px]"
+              onClick={() => removeFromCart(data.id)}
+              className="rounded-full border-[hsl(7,20%,60%)]  border w-4 h-4 p-[2px] cursor-pointer"
               src="/Front-end-mentor-react/product-list/images/icon-remove-item.svg"
               alt=""
             />
-
-            {/* <p
-              onClick={() => removeFromCart(data.id)}
-              className="ml-4 rounded-full bg-black text-white px-2"
-            >
-              X
-            </p> */}
           </div>
         </div>
       ))}
