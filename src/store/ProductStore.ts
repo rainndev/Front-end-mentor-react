@@ -44,9 +44,9 @@ const useProductStore = create<ProductCreateTypes>((set, get) => ({
     }),
 
   decreaseItem: (id) =>
-    set((state) => ({
-      cart: state.cart
-        .map((product) =>
+    set(() => ({
+      cart: get()
+        .cart.map((product) =>
           product.id === id
             ? { ...product, quantity: product.quantity - 1 }
             : product
@@ -55,8 +55,8 @@ const useProductStore = create<ProductCreateTypes>((set, get) => ({
     })),
 
   removeFromCart: (id) =>
-    set((state) => ({
-      cart: state.cart.filter((product) => product.id !== id),
+    set(() => ({
+      cart: get().cart.filter((product) => product.id !== id),
     })),
 
   getQuantity: (id) => {
