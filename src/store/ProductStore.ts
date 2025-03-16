@@ -11,6 +11,7 @@ interface ProductTypes {
   category: string;
   price: number;
   quantity: number;
+  id: number;
 }
 
 interface ProductCreateTypes {
@@ -24,13 +25,9 @@ const useProductStore = create<ProductCreateTypes>((set) => ({
   cart: [],
   decreaseItem: (product) =>
     set((state) => {
-      const isExistProduct = state.cart.find(
-        (data) => data.name === product.name
-      );
-
       return {
         cart: state.cart.map((data) =>
-          data.name === product.name
+          data.id === product.id
             ? { ...data, quantity: data.quantity - 1 }
             : data
         ),
