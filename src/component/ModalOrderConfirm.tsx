@@ -34,7 +34,7 @@ const ModalOrderConfirm = ({ setIsShowing, isShowing }: ModelOrderTypes) => {
         </p>
 
         {/* Product items */}
-        <div className="h-97 overflow-y-scroll bg-[hsl(20,50%,98%)] mt-5 rounded-xl scrollbar-hidden ">
+        <div className="max-h-97 overflow-y-scroll bg-[hsl(20,50%,98%)] mt-5 rounded-xl scrollbar-hidden ">
           {cart.map((data, index) => (
             <motion.div
               initial={{ opacity: 0 }}
