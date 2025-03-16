@@ -43,15 +43,33 @@ const ItemCart = () => {
               onClick={() => removeFromCart(data.id)}
               className="rounded-full border-[hsl(7,20%,60%)]  border w-4 h-4 p-[2px] cursor-pointer"
               src="/Front-end-mentor-react/product-list/images/icon-remove-item.svg"
-              alt=""
+              alt="remove-icon"
             />
           </div>
         </div>
       ))}
 
-      <div className="w-full flex justify-between items-center mt-5">
-        <p className="text-sm">Order Total</p>
-        <p className="font-bold text-xl">${totalPrice}</p>
+      <div className="w-full flex flex-col justify-between items-center mt-5">
+        <div className="flex justify-between w-full">
+          <p className="text-sm">Order Total</p>
+          <p className="font-bold text-xl">${totalPrice.toFixed(2)}</p>
+        </div>
+
+        <div className="bg-[hsl(20,50%,98%)] w-full flex justify-center mt-5 p-4 rounded-lg ">
+          <img
+            src="/Front-end-mentor-react/product-list/images/icon-carbon-neutral.svg"
+            alt="carbon-icon"
+          />
+
+          <p className="text-sm ml-2">
+            This is a <span className="font-semibold">carbon-neutral</span>{" "}
+            delivery
+          </p>
+        </div>
+
+        <button className="w-full rounded-full p-3 bg-[hsl(14,86%,42%)] text-[hsl(20,50%,98%)] text-sm cursor-pointer mt-8">
+          Confirm Order
+        </button>
       </div>
     </div>
   );
