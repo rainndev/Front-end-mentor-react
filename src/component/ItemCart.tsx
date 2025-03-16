@@ -1,9 +1,11 @@
-import { useMemo } from "react";
+import { useMemo, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import useProductStore from "../store/ProductStore";
+import ModalOrderConfirm from "./ModalOrderConfirm";
 
 const ItemCart = () => {
   const { cart, removeFromCart } = useProductStore();
+  const [isModalShowing, setModalShowing] = useState(false);
 
   const totalPrice = useMemo(() => {
     return cart.reduce((total, data) => total + data.quantity * data.price, 0);
@@ -83,10 +85,20 @@ const ItemCart = () => {
         </div>
 
         {/* Confirm order */}
-        <button className="w-full rounded-full p-3 bg-[hsl(14,86%,42%)] text-[hsl(20,50%,98%)] text-sm cursor-pointer mt-5">
+        <button
+          onClick={() => setModalShowing(!isModalShowing)}
+          className="w-full rounded-full p-3 bg-[hsl(14,86%,42%)] text-[hsl(20,50%,98%)] text-sm cursor-pointer mt-5"
+        >
           Confirm Order
         </button>
       </div>
+
+      {isModalShowing && (
+        <ModalOrderConfirm
+          setIsShowing={setModalShowing}
+          isShowing={isModalShowing}
+        />
+      )}
     </div>
   );
 };
