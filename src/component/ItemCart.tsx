@@ -67,7 +67,8 @@ const ItemCart = () => {
           </p>
         </div>
 
-        <button className="w-full rounded-full p-3 bg-[hsl(14,86%,42%)] text-[hsl(20,50%,98%)] text-sm cursor-pointer mt-8">
+        {/* Confirm order */}
+        <button className="w-full rounded-full p-3 bg-[hsl(14,86%,42%)] text-[hsl(20,50%,98%)] text-sm cursor-pointer mt-5">
           Confirm Order
         </button>
       </div>
