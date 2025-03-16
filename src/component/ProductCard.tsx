@@ -52,7 +52,7 @@ const ProductCard = ({ productData, currentId }: ProductProps) => {
                 animate={{ opacity: 1 }}
                 exit={{ opacity: 0 }}
                 onClick={handleAddToCart} // <-- Only show this when quantity is 0
-                className="relative bg-white py-2 px-5 rounded-full w-fit flex font-medium border border-[hsl(7,20%,60%)]"
+                className="relative bg-white py-2 px-5 rounded-full w-fit flex font-medium border border-[hsl(7,20%,60%)] "
               >
                 <img
                   src="/Front-end-mentor-react/product-list/images/icon-add-to-cart.svg"
