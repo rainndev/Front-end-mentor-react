@@ -1,9 +1,14 @@
 import ProductData from "../data/product-list-data.json";
 import ProductCard from "../component/ProductCard";
 import useProductStore from "../store/ProductStore";
+import { useMemo } from "react";
 
 const ProductList = () => {
-  const { cart } = useProductStore();
+  const { cart, removeFromCart } = useProductStore();
+
+  const totalPrice = useMemo(() => {
+    return cart.reduce((total, data) => total + data.quantity * data.price, 0);
+  }, [cart]);
 
   return (
     <div className="w-screen min-h-screen bg-[hsl(20,50%,98%)] text-[#212121] font-[Red_hat_text] flex justify-center items-center  ">
@@ -22,16 +27,41 @@ const ProductList = () => {
         <div className="w-full p-8">
           <div className="bg-white p-4 rounded-2xl">
             <h1 className="text-[hsl(14,86%,42%)] font-bold text-xl">
-              Your cart (0)
+              Your cart ({cart.length})
             </h1>
             <div className="w-full flex flex-col justify-center items-center p-5">
-              <img
-                src="/Front-end-mentor-react/product-list/images/illustration-empty-cart.svg"
-                alt=""
-              />
-              <p className="text-sm font-semibold text-[hsl(12,20%,44%)]">
-                Your added items will appear here
-              </p>
+              {cart.length > 0 ? (
+                <div className="w-full ">
+                  {cart.map((data, i) => (
+                    <div key={i}>
+                      <p>{data.name}</p>
+                      <div className="flex space-x-3">
+                        <p>{data.quantity}x</p>
+                        <p>@{data.price}</p>
+                        <p>${data.quantity * data.price}</p>
+                        <p
+                          onClick={() => removeFromCart(data.id)}
+                          className="ml-4 rounded-full bg-black text-white px-2"
+                        >
+                          X
+                        </p>
+                      </div>
+                    </div>
+                  ))}
+
+                  <p className="mt-5">Total ${totalPrice}</p>
+                </div>
+              ) : (
+                <>
+                  <img
+                    src="/Front-end-mentor-react/product-list/images/illustration-empty-cart.svg"
+                    alt=""
+                  />
+                  <p className="text-sm font-semibold text-[hsl(12,20%,44%)]">
+                    Your added items will appear here
+                  </p>
+                </>
+              )}
             </div>
           </div>
         </div>
