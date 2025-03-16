@@ -14,19 +14,22 @@ export interface ProductProps {
     category: string;
     price: number;
     quantity: number;
+    id: number;
   };
+
+  currentId: number;
 
   // other props
 }
 
-const ProductCard = ({ productData }: ProductProps) => {
+const ProductCard = ({ productData, currentId }: ProductProps) => {
   const { addToCart, cart, removeToCart, decreaseItem } = useProductStore();
   const handleAddToCart = () => {
     addToCart(productData);
   };
 
   const handleRemoveCart = () => {
-    decreaseItem(productData);
+    decreaseItem(currentId);
   };
 
   return (

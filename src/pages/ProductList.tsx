@@ -15,7 +15,7 @@ const ProductList = () => {
           {/* product grid */}
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3 mt-5">
             {ProductData.map((data, i) => (
-              <ProductCard productData={data} key={i} />
+              <ProductCard productData={data} currentId={i} key={i} />
             ))}
           </div>
         </div>

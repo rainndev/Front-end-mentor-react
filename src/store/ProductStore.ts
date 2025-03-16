@@ -17,47 +17,44 @@ interface ProductTypes {
 interface ProductCreateTypes {
   cart: ProductTypes[];
   addToCart: (product: ProductTypes) => void;
-  decreaseItem: (product: ProductTypes) => void;
-  removeToCart: (name: string) => void;
+  decreaseItem: (id: number) => void;
+  removeFromCart: (id: number) => void;
 }
 
 const useProductStore = create<ProductCreateTypes>((set) => ({
   cart: [],
-  decreaseItem: (product) =>
-    set((state) => {
-      return {
-        cart: state.cart.map((data) =>
-          data.id === product.id
-            ? { ...data, quantity: data.quantity - 1 }
-            : data
-        ),
-      };
-    }),
 
   addToCart: (product) =>
     set((state) => {
-      const isExistProduct = state.cart.find(
-        (data) => data.name === product.name
-      );
+      const isExistProduct = state.cart.find((data) => data.id === product.id);
 
       if (isExistProduct) {
-        console.log("The product existed: adding quantity");
         return {
           cart: state.cart.map((data) =>
-            data.name === product.name
+            data.id === product.id
               ? { ...data, quantity: data.quantity + 1 }
               : data
           ),
         };
       } else {
-        console.log("The product not existed: adding to the cart");
         return { cart: [...state.cart, { ...product, quantity: 1 }] };
       }
     }),
 
-  removeToCart: (name) =>
+  decreaseItem: (id) =>
     set((state) => ({
-      cart: state.cart.filter((data) => data.name !== name),
+      cart: state.cart
+        .map((product) =>
+          product.id === id
+            ? { ...product, quantity: product.quantity - 1 }
+            : product
+        )
+        .filter((product) => product.quantity > 0), // Remove if quantity is 0
+    })),
+
+  removeFromCart: (id) =>
+    set((state) => ({
+      cart: state.cart.filter((product) => product.id !== id),
     })),
 }));
 
