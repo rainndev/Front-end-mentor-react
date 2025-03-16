@@ -9,3 +9,12 @@
 /* * {
   border: 1px solid red;
 } */
+
+.scrollbar-hidden::-webkit-scrollbar {
+  display: none;
+}
+
+.scrollbar-hidden {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}

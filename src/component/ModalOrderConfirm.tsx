@@ -1,4 +1,5 @@
 import React, { useMemo } from "react";
+import { motion } from "framer-motion";
 import useProductStore from "../store/ProductStore";
 
 interface ModelOrderTypes {
@@ -33,9 +34,16 @@ const ModalOrderConfirm = ({ setIsShowing, isShowing }: ModelOrderTypes) => {
         </p>
 
         {/* Product items */}
-        <div className="bg-[hsl(20,50%,98%)] mt-5 rounded-xl ">
+        <div className="h-97 overflow-y-scroll bg-[hsl(20,50%,98%)] mt-5 rounded-xl scrollbar-hidden ">
           {cart.map((data, index) => (
-            <div key={index}>
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{
+                delay: index * 0.1,
+              }}
+              key={index}
+            >
               <div className="flex justify-between p-5 ">
                 <div className="flex">
                   <img
@@ -72,7 +80,7 @@ const ModalOrderConfirm = ({ setIsShowing, isShowing }: ModelOrderTypes) => {
                   <p className="text-xl font-bold">${totalPrice.toFixed(2)}</p>
                 </div>
               )}
-            </div>
+            </motion.div>
           ))}
         </div>
         <div
