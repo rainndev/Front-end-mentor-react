@@ -1,5 +1,5 @@
 import React, { useMemo } from "react";
-import { motion } from "framer-motion";
+import { AnimatePresence, motion } from "framer-motion";
 import useProductStore from "../store/ProductStore";
 
 interface ModelOrderTypes {
@@ -19,7 +19,21 @@ const ModalOrderConfirm = ({ setIsShowing, isShowing }: ModelOrderTypes) => {
       onClick={() => setIsShowing(!isShowing)}
       className="fixed  flex justify-center items-center w-full h-full inset-0 bg-black/50 "
     >
-      <div className="w-full max-w-xl h-fit bg-white p-8 rounded-lg ">
+      <motion.div
+        initial={{
+          opacity: 0,
+          y: 10,
+        }}
+        animate={{
+          opacity: 1,
+          y: 0,
+        }}
+        exit={{
+          opacity: 0,
+          y: 10,
+        }}
+        className="w-full max-w-xl h-fit bg-white p-8 rounded-lg "
+      >
         <img
           src="/Front-end-mentor-react/product-list/images/icon-order-confirmed.svg"
           alt="order-confirm"
@@ -84,12 +98,17 @@ const ModalOrderConfirm = ({ setIsShowing, isShowing }: ModelOrderTypes) => {
           ))}
         </div>
         <div
-          onClick={resetCart}
+          onClick={() => {
+            setIsShowing(!isShowing);
+            setTimeout(() => {
+              resetCart();
+            }, 300);
+          }}
           className="mt-7 w-full rounded-full p-3 bg-[hsl(14,86%,42%)] text-[hsl(20,50%,98%)] text-sm cursor-pointer text-center font-medium"
         >
           Start New Order
         </div>
-      </div>
+      </motion.div>
     </div>
   );
 };

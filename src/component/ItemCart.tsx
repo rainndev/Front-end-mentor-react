@@ -93,12 +93,14 @@ const ItemCart = () => {
         </button>
       </div>
 
-      {isModalShowing && (
-        <ModalOrderConfirm
-          setIsShowing={setModalShowing}
-          isShowing={isModalShowing}
-        />
-      )}
+      <AnimatePresence>
+        {isModalShowing && (
+          <ModalOrderConfirm
+            setIsShowing={setModalShowing}
+            isShowing={isModalShowing}
+          />
+        )}
+      </AnimatePresence>
     </div>
   );
 };
