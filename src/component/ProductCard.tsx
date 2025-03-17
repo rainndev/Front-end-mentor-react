@@ -60,9 +60,9 @@ const ProductCard = ({ productData, currentId }: ProductProps) => {
                   alt=""
                 />
                 <motion.p
-                  initial={{ x: -50, opacity: 0 }}
+                  initial={{ x: -5, opacity: 0 }}
                   animate={{ x: 0, opacity: 1 }}
-                  exit={{ x: -50, opacity: 0 }}
+                  exit={{ x: -5, opacity: 0 }}
                   className="text-xs text-[hsl(14,65%,9%)] font-semibold align-middle  cursor-pointer group-hover:text-[hsl(14,86%,42%)] "
                 >
                   Add to cart
