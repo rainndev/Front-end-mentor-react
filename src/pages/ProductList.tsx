@@ -2,9 +2,14 @@ import ProductData from "../data/product-list-data.json";
 import ProductCard from "../component/ProductCard";
 import useProductStore from "../store/ProductStore";
 import ItemCart from "../component/ItemCart";
+import { useMemo } from "react";
 
 const ProductList = () => {
   const { cart } = useProductStore();
+
+  const totalQuantity = useMemo(() => {
+    return cart.reduce((total, { quantity }) => total + quantity, 0);
+  }, [cart]);
 
   return (
     <div className="w-screen min-h-screen bg-[hsl(20,50%,98%)] text-[#212121] font-[Red_hat_text] flex justify-center items-center  ">
@@ -23,7 +28,7 @@ const ProductList = () => {
         <div className="w-full p-8">
           <div className="bg-white p-6 rounded-2xl">
             <h1 className="text-[hsl(14,86%,42%)] font-bold text-xl">
-              Your cart ({cart.length})
+              Your cart ({totalQuantity})
             </h1>
             <div className="w-full flex flex-col justify-center items-center ">
               {cart.length > 0 ? (

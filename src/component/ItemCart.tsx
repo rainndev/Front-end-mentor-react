@@ -92,7 +92,6 @@ const ItemCart = () => {
           Confirm Order
         </button>
       </div>
-
       <AnimatePresence>
         {isModalShowing && (
           <ModalOrderConfirm
