@@ -58,7 +58,7 @@ const ModalOrderConfirm = ({ setIsShowing, isShowing }: ModelOrderTypes) => {
               }}
               key={index}
             >
-              <div className="flex justify-between p-5 ">
+              <div className="flex justify-between p-5 space-x-2">
                 <div className="flex">
                   <img
                     src={data.image.thumbnail}
@@ -67,20 +67,25 @@ const ModalOrderConfirm = ({ setIsShowing, isShowing }: ModelOrderTypes) => {
                   />
 
                   <div className="ml-3 flex flex-col justify-center space-y-1">
+                    {/* Product Name */}
                     <div>
                       <p className="font-semibold text-sm">{data.name}</p>
                     </div>
 
                     <div className="flex text-sm">
+                      {/* Product quantity */}
                       <p className="font-semibold text-[hsl(14,86%,42%)]">
                         {data.quantity}x
                       </p>
+                      {/* Product price */}
                       <p className="font-medium ml-3 text-[hsl(7,20%,60%)]">
                         @ ${data.price.toFixed(2)}
                       </p>
                     </div>
                   </div>
                 </div>
+
+                {/* Product price * quantity */}
                 <div className="flex justify-center items-center font-semibold text-sm">
                   ${(data.price * data.quantity).toFixed(2)}
                 </div>
