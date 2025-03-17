@@ -25,7 +25,7 @@ const ItemCart = () => {
           >
             <div>
               {/* Title of product */}
-              <p className="text-sm font-semibold text-[hsl(14,65%,9%)]">
+              <p className="text-[clamp(.8rem,1vw,0.875rem)]  font-semibold text-[hsl(14,65%,9%)]">
                 {data.name}
               </p>
 
@@ -78,7 +78,7 @@ const ItemCart = () => {
             alt="carbon-icon"
           />
 
-          <p className="text-sm ml-2">
+          <p className=" text-[clamp(.8rem,2vw,0.875rem)] ml-2">
             This is a <span className="font-semibold">carbon-neutral</span>{" "}
             delivery
           </p>
