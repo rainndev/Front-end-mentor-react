@@ -17,7 +17,7 @@ const ModalOrderConfirm = ({ setIsShowing, isShowing }: ModelOrderTypes) => {
   return (
     <div
       onClick={() => setIsShowing(!isShowing)}
-      className="fixed  flex justify-center items-center w-full h-full inset-0 bg-black/50 "
+      className="fixed  flex justify-center items-end sm:items-center w-full h-full inset-0 bg-black/50 "
     >
       <motion.div
         initial={{
@@ -32,7 +32,7 @@ const ModalOrderConfirm = ({ setIsShowing, isShowing }: ModelOrderTypes) => {
           opacity: 0,
           y: 10,
         }}
-        className="w-full max-w-xl h-fit bg-white p-8 rounded-lg "
+        className="w-full max-w-xl h-fit bg-white p-6 sm:p-8 rounded-2xl sm:rounded-lg "
       >
         <img
           src="/Front-end-mentor-react/product-list/images/icon-order-confirmed.svg"
@@ -67,7 +67,9 @@ const ModalOrderConfirm = ({ setIsShowing, isShowing }: ModelOrderTypes) => {
                   />
 
                   <div className="ml-3 flex flex-col justify-center space-y-1">
-                    <p className="font-semibold text-sm">{data.name}</p>
+                    <div>
+                      <p className="font-semibold text-sm">{data.name}</p>
+                    </div>
 
                     <div className="flex text-sm">
                       <p className="font-semibold text-[hsl(14,86%,42%)]">
