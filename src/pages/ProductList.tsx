@@ -13,12 +13,12 @@ const ProductList = () => {
 
   return (
     <div className="w-screen min-h-screen bg-[hsl(20,50%,98%)] text-[#212121] font-[Red_hat_text] flex justify-center items-center  ">
-      <div className="grid grid-cols-1 md:grid-cols-[65%_35%] w-full  max-w-7xl ">
+      <div className="grid grid-cols-1  md:grid-cols-[65%_35%] w-full  max-w-7xl ">
         {/* Left container */}
-        <div className="w-full p-8">
+        <div className="w-full p-6 sm:p-8">
           <h1 className="text-3xl font-bold">Desserts</h1>
           {/* product grid */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3 mt-5">
+          <div className="grid grid-cols-1 sm:grid-cols-1  md:grid-cols-2 lg:grid-cols-3 gap-3 mt-5">
             {ProductData.map((data, i) => (
               <ProductCard productData={data} currentId={i} key={i} />
             ))}
