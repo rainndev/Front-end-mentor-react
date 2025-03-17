@@ -38,12 +38,12 @@ const ProductCard = ({ productData, currentId }: ProductProps) => {
       <div className="relative">
         <img
           src={productData.image.desktop}
-          className={`w-full h-full bg-cover rounded-lg ${
+          className={`min-h-[100px]  max-h-[300px] w-full h-full  object-cover rounded-lg ${
             getQuantity(currentId) > 0 && "border-2 border-[hsl(14,86%,42%)]"
           }`}
           alt=""
         />
-        <div className=" w-full flex justify-center absolute -bottom-5 left-0 ">
+        <div className="w-full flex justify-center absolute -bottom-5 left-0 ">
           <AnimatePresence>
             {/* Add items - add to cart */}
             {getQuantity(currentId) === 0 && (
