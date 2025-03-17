@@ -36,12 +36,12 @@ const ProductList = () => {
                   <ItemCart />
                 </div>
               ) : (
-                <div className="m-10 flex flex-col justify-between items-center">
+                <div className="mx-2 my-10 flex flex-col justify-between items-center text-center">
                   <img
                     src="/Front-end-mentor-react/product-list/images/illustration-empty-cart.svg"
                     alt=""
                   />
-                  <p className="text-sm font-semibold text-[hsl(12,20%,44%)]">
+                  <p className="text-sm  font-semibold text-[hsl(12,20%,44%)]">
                     Your added items will appear here
                   </p>
                 </div>
