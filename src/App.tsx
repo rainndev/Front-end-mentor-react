@@ -7,6 +7,7 @@ import Accordion from "./pages/Accordion";
 import Homepage from "./pages/Homepage";
 import { Routes, Route } from "react-router-dom";
 import ProductList from "./pages/ProductList";
+import AdviceGenerator from "./pages/AdviceGenerator";
 // scan({
 //   enabled: false,
 // });
@@ -24,6 +25,8 @@ const App = () => {
           element={<TicketGeneratorMain />}
         />
         <Route path="/product-list" element={<ProductList />} />
+
+        <Route path="/advice-generator" element={<AdviceGenerator />} />
       </Routes>
     </div>
   );
