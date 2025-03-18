@@ -1,4 +1,4 @@
-import React from "react";
+import { memo, useCallback } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import useProductStore from "../store/ProductStore";
 
@@ -24,13 +24,13 @@ export interface ProductProps {
 
 const ProductCard = ({ productData, currentId }: ProductProps) => {
   const { addToCart, getQuantity, decreaseItem } = useProductStore();
-  const handleAddToCart = () => {
+  const handleAddToCart = useCallback(() => {
     addToCart(productData);
-  };
+  }, []);
 
-  const handleRemoveCart = () => {
+  const handleRemoveCart = useCallback(() => {
     decreaseItem(currentId);
-  };
+  }, []);
 
   return (
     <div className="w-full h-fit  rounded-lg">
