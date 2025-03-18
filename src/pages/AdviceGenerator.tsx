@@ -51,7 +51,7 @@ const AdviceGenerator = () => {
             />
 
             <div className="absolute -bottom-8 left-0 w-full flex justify-center items-center">
-              <div className=" rounded-full p-5 bg-[hsl(150,100%,66%)]">
+              <div className="hover:shadow-[0px_0px_30px_hsl(150,100%,66%)] transition-all ease-in-out duration-300 rounded-full p-5 bg-[hsl(150,100%,66%)]">
                 <motion.img
                   initial={{ rotate: 90 }}
                   animate={{ rotate: 0 }}
