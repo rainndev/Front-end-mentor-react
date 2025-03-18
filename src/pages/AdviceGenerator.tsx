@@ -30,7 +30,7 @@ const AdviceGenerator = () => {
 
       <AnimatePresence>
         {loading ? (
-          <p className="text-lg font-bold text-center text-[hsl(193,38%,86%)] drop-shadow-xl">
+          <p className="text-sm md:text-lg font-bold text-center text-[hsl(193,38%,86%)] drop-shadow-xl">
             Loading...
           </p>
         ) : (
@@ -38,7 +38,7 @@ const AdviceGenerator = () => {
             initial={{ y: 50, opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
             exit={{ y: 50, opacity: 0 }}
-            className="bg-[hsl(217,19%,24%)] flex justify-center items-center flex-col p-15 space-y-4 max-w-xl rounded-2xl relative"
+            className="bg-[hsl(217,19%,24%)] flex justify-center items-center flex-col p-5 py-15 md:p-15 space-y-4 max-w-xl rounded-2xl relative mx-4"
           >
             <h1 className="text-[hsl(150,100%,66%)] text-xs font-bold tracking-[.5em]">
               ADVICE #{AdviceId}
@@ -46,10 +46,19 @@ const AdviceGenerator = () => {
             <p className="mt-2 text-2xl font-bold text-center text-[hsl(193,38%,86%)] text-pretty">
               “{advice}”
             </p>
-            <img
-              src="/Front-end-mentor-react/advice-generator/images/pattern-divider-desktop.svg"
-              className="mt-5"
-            />
+            <picture>
+              <img
+                src="/Front-end-mentor-react/advice-generator/images/pattern-divider-mobile.svg"
+                className="block sm:hidden mt-5 object-cover"
+                alt="Pattern Divider Mobile"
+              />
+
+              <img
+                src="/Front-end-mentor-react/advice-generator/images/pattern-divider-desktop.svg"
+                className="hidden sm:block mt-5 object-cover"
+                alt="Pattern Divider Desktop"
+              />
+            </picture>
 
             <div className="absolute -bottom-8 left-0 w-full flex justify-center items-center">
               <motion.div
