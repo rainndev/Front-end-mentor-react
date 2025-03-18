@@ -6,20 +6,21 @@ const AdviceGenerator = () => {
   const [advice, setAdvice] = useState<string>("");
   const [loading, setLoading] = useState<boolean>(true);
 
+  const FetchData = async () => {
+    setLoading(true);
+    try {
+      const response = await fetch("https://api.adviceslip.com/advice");
+      const data = await response.json();
+
+      setAdvice(data.slip.advice);
+      setAdviceId(data.slip.id);
+      setLoading(false);
+    } catch (error) {
+      setLoading(true);
+    }
+  };
+
   useEffect(() => {
-    const FetchData = async () => {
-      try {
-        const response = await fetch("https://api.adviceslip.com/advice");
-        const data = await response.json();
-
-        setAdvice(data.slip.advice);
-        setAdviceId(data.slip.id);
-        setLoading(false);
-      } catch (error) {
-        setLoading(true);
-      }
-    };
-
     FetchData();
   }, []);
 
@@ -51,13 +52,17 @@ const AdviceGenerator = () => {
             />
 
             <div className="absolute -bottom-8 left-0 w-full flex justify-center items-center">
-              <div className="hover:shadow-[0px_0px_30px_hsl(150,100%,66%)] transition-all ease-in-out duration-300 rounded-full p-5 bg-[hsl(150,100%,66%)]">
+              <motion.div
+                onClick={() => FetchData()}
+                whileTap={{ scale: 1.2 }}
+                className="hover:shadow-[0px_0px_30px_hsl(150,100%,66%)] transition-all ease-in-out duration-300 rounded-full p-5 bg-[hsl(150,100%,66%)] cursor-pointer"
+              >
                 <motion.img
                   initial={{ rotate: 90 }}
                   animate={{ rotate: 0 }}
                   src="/Front-end-mentor-react/advice-generator/images/icon-dice.svg"
                 />
-              </div>
+              </motion.div>
             </div>
           </motion.div>
         )}
