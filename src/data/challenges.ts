@@ -9,4 +9,5 @@ export const challenges: challengesType[] = [
   { title: "conference-ticket-generator" },
   { title: "product-list" },
   { title: "advice-generator" },
+  { title: "browser-extension-manager" },
 ];

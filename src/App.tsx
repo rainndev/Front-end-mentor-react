@@ -8,6 +8,7 @@ import Homepage from "./pages/Homepage";
 import { Routes, Route } from "react-router-dom";
 import ProductList from "./pages/ProductList";
 import AdviceGenerator from "./pages/AdviceGenerator";
+import BrowserExtensionMain from "./pages/BrowserExtensionMain";
 // scan({
 //   enabled: false,
 // });
@@ -27,6 +28,10 @@ const App = () => {
         <Route path="/product-list" element={<ProductList />} />
 
         <Route path="/advice-generator" element={<AdviceGenerator />} />
+        <Route
+          path="/browser-extension-manager"
+          element={<BrowserExtensionMain />}
+        />
       </Routes>
     </div>
   );
