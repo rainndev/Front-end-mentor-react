@@ -6,7 +6,7 @@ const ExtensionCardsContainer = () => {
   return (
     <div className="grid grid-cols-3 gap-3 mt-10">
       {extensionListData.map((extensionData: ExtensionItem) => (
-        <ExtensionCard {...extensionData} />
+        <ExtensionCard key={extensionData.name} {...extensionData} />
       ))}
     </div>
   );

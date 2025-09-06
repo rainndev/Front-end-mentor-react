@@ -1,3 +1,4 @@
+import { Switch } from "@/components/ui/switch";
 import { ExtensionItem } from "@/types/BrowserExtensionManager/browser-extension-data.types";
 
 const ExtensionCard = (extensionData: ExtensionItem) => {
@@ -17,11 +18,12 @@ const ExtensionCard = (extensionData: ExtensionItem) => {
         </div>
       </div>
 
-      <div className="flex justify-between mt-10">
-        <button className="px-4 py-1.5 text-sm text-BEM-neutral-0 border rounded-full border-BEM-neutral-600">
+      <div className="flex justify-between mt-10 items-center">
+        <button className="px-4 py-1.5 text-sm text-BEM-neutral-0   border rounded-full border-BEM-neutral-600">
           Remove
         </button>
-        <input type="checkbox" />
+
+        <Switch id={extensionData.name} />
       </div>
     </div>
   );

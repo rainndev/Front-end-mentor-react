@@ -9,6 +9,7 @@ const FilterButtons = () => {
     <div className="space-x-2 flex text-BEM-neutral-900">
       {filterOptions.map((data, i) => (
         <button
+          key={i}
           onClick={() => setSelectedFilter(i)}
           className={`p-1 px-4 rounded-full ${
             selectedFilter === i
