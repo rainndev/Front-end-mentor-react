@@ -1,6 +1,6 @@
 const NavigationBar = () => {
   return (
-    <div className="w-full mt-8">
+    <div className="w-full ">
       <nav className="w-full bg-BEM-neutral-800 flex justify-between p-3 px-4 rounded-2xl items-center text-gray-900 dark:text-BEM-neutral-0">
         <svg
           className="h-8"
