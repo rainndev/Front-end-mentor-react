@@ -1,7 +1,7 @@
 import { Switch } from "@/components/ui/switch";
-import { ExtensionItem } from "@/types/BrowserExtensionManager/browser-extension-data.types";
+import { ExtensionItemProps } from "@/types/BrowserExtensionManager/browser-extension-data.types";
 
-const ExtensionCard = (extensionData: ExtensionItem) => {
+const ExtensionCard = (extensionData: ExtensionItemProps) => {
   return (
     <div className="flex flex-col bg-BEM-neutral-800 p-4 border border-BEM-neutral-600 rounded-3xl justify-between">
       <div className="flex space-x-5">
@@ -23,7 +23,17 @@ const ExtensionCard = (extensionData: ExtensionItem) => {
           Remove
         </button>
 
-        <Switch className="cursor-pointer" id={extensionData.name} />
+        <Switch
+          className="cursor-pointer"
+          checked={extensionData.isActive}
+          onCheckedChange={(check) => {
+            extensionData.toggleExtension(extensionData.id);
+            console.log(
+              `extension: ${extensionData.name}: toggled to : ${check}`
+            );
+          }}
+          id={extensionData.name}
+        />
       </div>
     </div>
   );
