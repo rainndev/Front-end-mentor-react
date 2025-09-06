@@ -10,14 +10,19 @@ interface ExtensionCardsContainerProps {
 const ExtensionCardsContainer = ({
   filterID,
 }: ExtensionCardsContainerProps) => {
-  const [data, setData] =
-    useState<Omit<ExtensionItem, "toggleExtension">[]>(extensionListData);
+  const [data, setData] = useState<ExtensionItem[]>(extensionListData);
 
   const toggleExtension = (id: number) => {
     setData((prevData) =>
       prevData.map((item: ExtensionItem) =>
         item.id === id ? { ...item, isActive: !item.isActive } : item
       )
+    );
+  };
+
+  const removeExtension = (id: number) => {
+    setData((prevData) =>
+      prevData.filter((item: ExtensionItem) => item.id !== id)
     );
   };
 
@@ -33,6 +38,7 @@ const ExtensionCardsContainer = ({
         <ExtensionCard
           key={extensionData.name}
           toggleExtension={toggleExtension}
+          removeExtension={removeExtension}
           {...extensionData}
         />
       ))}

@@ -5,6 +5,10 @@ export interface ExtensionItemProps {
   description: string;
   isActive: boolean;
   toggleExtension: (id: number) => void;
+  removeExtension: (id: number) => void;
 }
 
-export type ExtensionItem = Omit<ExtensionItemProps, "toggleExtension">;
+export type ExtensionItem = Omit<
+  ExtensionItemProps,
+  "toggleExtension" | "removeExtension"
+>;

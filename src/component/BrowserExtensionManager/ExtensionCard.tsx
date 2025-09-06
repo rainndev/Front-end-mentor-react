@@ -19,19 +19,19 @@ const ExtensionCard = (extensionData: ExtensionItemProps) => {
       </div>
 
       <div className="flex justify-between mt-10 items-center">
-        <button className="px-4 py-1.5 text-sm text-BEM-neutral-0   border rounded-full border-BEM-neutral-600 hover:bg-BEM-red-400 cursor-pointer hover:text-BEM-neutral-900 hover:border-BEM-neutral-900 transition-colors ease-in-out duration-200">
+        <button
+          onClick={() => extensionData.removeExtension(extensionData.id)}
+          className="px-4 py-1.5 text-sm text-BEM-neutral-0   border rounded-full border-BEM-neutral-600 hover:bg-BEM-red-400 cursor-pointer hover:text-BEM-neutral-900 hover:border-BEM-neutral-900 transition-colors ease-in-out duration-200"
+        >
           Remove
         </button>
 
         <Switch
           className="cursor-pointer"
           checked={extensionData.isActive}
-          onCheckedChange={(check) => {
-            extensionData.toggleExtension(extensionData.id);
-            console.log(
-              `extension: ${extensionData.name}: toggled to : ${check}`
-            );
-          }}
+          onCheckedChange={() =>
+            extensionData.toggleExtension(extensionData.id)
+          }
           id={extensionData.name}
         />
       </div>
