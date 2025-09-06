@@ -7,7 +7,7 @@ const BrowserExtensionMain = () => {
   const [filterID, setFilterID] = useState(0);
 
   return (
-    <div className="h-full w-full flex justify-center [background-image:var(--color-BEM-dark-gradient)]">
+    <div className="min-h-screen w-full flex justify-center [background-image:var(--color-BEM-dark-gradient)]">
       <div className="h-full flex max-w-7xl w-full flex-col my-10">
         <NavigationBar />
         <div className="flex justify-between mt-10">
