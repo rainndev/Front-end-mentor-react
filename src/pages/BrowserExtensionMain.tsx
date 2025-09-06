@@ -1,8 +1,11 @@
+import { useState } from "react";
 import ExtensionCardsContainer from "../component/BrowserExtensionManager/ExtensionCardsContainer";
 import FilterButtons from "../component/BrowserExtensionManager/FilterButtons";
 import NavigationBar from "../component/BrowserExtensionManager/NavigationBar";
 
 const BrowserExtensionMain = () => {
+  const [filterID, setFilterID] = useState(0);
+
   return (
     <div className="h-full w-full flex justify-center [background-image:var(--color-BEM-dark-gradient)]">
       <div className="h-full flex max-w-7xl w-full flex-col my-10">
@@ -12,9 +15,9 @@ const BrowserExtensionMain = () => {
             Extension List
           </h1>
 
-          <FilterButtons />
+          <FilterButtons filterID={filterID} setFilterID={setFilterID} />
         </div>
-        <ExtensionCardsContainer />
+        <ExtensionCardsContainer filterID={filterID} />
       </div>
     </div>
   );

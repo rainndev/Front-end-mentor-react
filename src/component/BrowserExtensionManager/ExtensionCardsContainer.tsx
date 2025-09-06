@@ -3,7 +3,13 @@ import { ExtensionItem } from "@/types/BrowserExtensionManager/browser-extension
 import ExtensionCard from "./ExtensionCard";
 import { useState } from "react";
 
-const ExtensionCardsContainer = () => {
+interface ExtensionCardsContainerProps {
+  filterID: number;
+}
+
+const ExtensionCardsContainer = ({
+  filterID,
+}: ExtensionCardsContainerProps) => {
   const [data, setData] =
     useState<Omit<ExtensionItem, "toggleExtension">[]>(extensionListData);
 
@@ -15,9 +21,15 @@ const ExtensionCardsContainer = () => {
     );
   };
 
+  const filteredData = data.filter((item) => {
+    if (filterID === 1) return item.isActive;
+    if (filterID === 2) return !item.isActive;
+    return true;
+  });
+
   return (
     <div className="grid grid-cols-3 gap-3 mt-10">
-      {data.map((extensionData: ExtensionItem) => (
+      {filteredData.map((extensionData: ExtensionItem) => (
         <ExtensionCard
           key={extensionData.name}
           toggleExtension={toggleExtension}
