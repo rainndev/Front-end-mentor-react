@@ -1,7 +1,20 @@
+import { useState } from "react";
+
 const NavigationBar = () => {
+  const [isDarkMode, setDarkMode] = useState(false);
+
+  const toggleDarkMode = () => {
+    setDarkMode((prev) => {
+      const newMode = !prev;
+
+      document.documentElement.classList.toggle("dark", newMode);
+      return newMode;
+    });
+  };
+
   return (
     <div className="w-full ">
-      <nav className="w-full bg-BEM-neutral-800 flex justify-between p-3 px-4 rounded-2xl items-center text-BEM-neutral-0">
+      <nav className="w-full dark:bg-BEM-neutral-800 bg-BEM-neutral-0 flex justify-between p-3 px-4 rounded-2xl items-center dark:text-BEM-neutral-0 text-BEM-neutral-900">
         <svg
           className="h-8"
           xmlns="http://www.w3.org/2000/svg"
@@ -27,11 +40,21 @@ const NavigationBar = () => {
           </defs>
         </svg>
 
-        <button className="aspect-square bg-BEM-neutral-700 p-2.5 size-10 rounded-lg items-center justify-center flex hover:bg-BEM-neutral-600 cursor-pointer transition-colors ease-in-out duration-200">
-          <img
-            src="browser-extension-manager/assets/images/icon-sun.svg"
-            alt=""
-          />
+        <button
+          onClick={() => toggleDarkMode()}
+          className="aspect-square dark:bg-BEM-neutral-700 p-2.5 size-10 rounded-lg items-center justify-center flex dark:hover:bg-BEM-neutral-600 cursor-pointer transition-colors ease-in-out duration-200 bg-BEM-neutral-100 "
+        >
+          {isDarkMode ? (
+            <img
+              src="browser-extension-manager/assets/images/icon-sun.svg"
+              alt=""
+            />
+          ) : (
+            <img
+              src="browser-extension-manager/assets/images/icon-moon.svg"
+              alt=""
+            />
+          )}
         </button>
       </nav>
     </div>
