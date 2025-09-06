@@ -27,7 +27,7 @@ const NavigationBar = () => {
           </defs>
         </svg>
 
-        <button className="aspect-square bg-BEM-neutral-700 p-2.5 size-10 rounded-lg items-center justify-center flex">
+        <button className="aspect-square bg-BEM-neutral-700 p-2.5 size-10 rounded-lg items-center justify-center flex hover:bg-BEM-neutral-600 cursor-pointer transition-colors ease-in-out duration-200">
           <img
             src="browser-extension-manager/assets/images/icon-sun.svg"
             alt=""

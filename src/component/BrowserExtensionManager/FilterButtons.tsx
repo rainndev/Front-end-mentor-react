@@ -11,10 +11,10 @@ const FilterButtons = () => {
         <button
           key={i}
           onClick={() => setSelectedFilter(i)}
-          className={`p-1 px-4 rounded-full ${
+          className={`p-1 px-4 rounded-full cursor-pointer transition-colors ease-in-out duration-200 ${
             selectedFilter === i
               ? "bg-BEM-red-400 text-BEM-neutral-900"
-              : "bg-BEM-neutral-600 text-BEM-neutral-0"
+              : "bg-BEM-neutral-700 hover:bg-BEM-neutral-600 text-BEM-neutral-0"
           }`}
         >
           {data}
