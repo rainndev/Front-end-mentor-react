@@ -3,18 +3,18 @@ import { ExtensionItemProps } from "@/types/BrowserExtensionManager/browser-exte
 
 const ExtensionCard = (extensionData: ExtensionItemProps) => {
   return (
-    <div className="flex flex-col dark:bg-BEM-neutral-800 p-4 border  bg-BEM-neutral-0 rounded-3xl justify-between">
-      <div className="flex space-x-5">
+    <div className="flex flex-col dark:bg-BEM-neutral-800 p-4 border  bg-BEM-neutral-0 rounded-3xl justify-between shadow-sm">
+      <div className="flex space-x-4">
         <img
           src={extensionData.logo}
           alt={extensionData.name + "name"}
-          className="size-13"
+          className="size-13 rounded-lg"
         />
         <div>
-          <h1 className="dark:text-BEM-neutral-100 text-BEM-neutral-900 font-medium text-lg">
+          <h1 className="dark:text-BEM-neutral-100 text-BEM-neutral-900 font-semibold text-lg ">
             {extensionData.name}
           </h1>
-          <p className="dark:text-BEM-neutral-300 text-BEM-neutral-600">
+          <p className="dark:text-BEM-neutral-300 text-BEM-neutral-600 text-sm md:text-base  font-normal mt-1">
             {extensionData.description}
           </p>
         </div>
@@ -27,7 +27,7 @@ const ExtensionCard = (extensionData: ExtensionItemProps) => {
            dark:text-BEM-neutral-0
           hover:text-BEM-neutral-0
           
-          hover:bg-BEM-red-700 text-BEM-neutral-900  border-2 rounded-full
+          hover:bg-BEM-red-700 text-BEM-neutral-900  border-1 rounded-full
           border-BEM-neutral-300
           dark:border-BEM-neutral-600 dark:hover:bg-BEM-red-400 cursor-pointer dark:hover:text-BEM-neutral-900 dark:hover:border-BEM-neutral-900 transition-colors ease-in-out duration-200 browser-extension-focus-state"
         >

@@ -14,7 +14,7 @@ const NavigationBar = () => {
 
   return (
     <div className="w-full ">
-      <nav className="w-full dark:bg-BEM-neutral-800 bg-BEM-neutral-0 flex justify-between p-3 px-4 rounded-2xl items-center dark:text-BEM-neutral-0 text-BEM-neutral-900">
+      <nav className="w-full dark:bg-BEM-neutral-800 bg-BEM-neutral-0 flex justify-between p-3 px-4 rounded-lg md:rounded-2xl items-center dark:text-BEM-neutral-0 text-BEM-neutral-900 shadow-sm shadow-BEM-neutral-200 dark:shadow-BEM-neutral-700 ">
         <svg
           className="h-8"
           xmlns="http://www.w3.org/2000/svg"

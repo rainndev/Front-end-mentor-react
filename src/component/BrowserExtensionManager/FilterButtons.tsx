@@ -7,7 +7,7 @@ const filterOptions = ["All", "Active", "Inactive"];
 
 const FilterButtons = ({ filterID, setFilterID }: FilterButtonsProps) => {
   return (
-    <div className="space-x-2 flex text-BEM-neutral-900">
+    <div className="space-x-2 flex text-BEM-neutral-900 mt-4 md:mt-0">
       {filterOptions.map((data, i) => (
         <button
           key={i}
