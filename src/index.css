@@ -159,3 +159,7 @@
     @apply bg-background text-foreground;
   }
 }
+
+.browser-extension-focus-state {
+  @apply focus:outline-1 dark:focus:ring-BEM-red-400 dark:focus:border-BEM-neutral-900 dark:focus:bg-BEM-neutral-600  focus:ring-2 focus:ring-BEM-red-400 focus:border-BEM-neutral-0 focus:bg-BEM-neutral-100;
+}

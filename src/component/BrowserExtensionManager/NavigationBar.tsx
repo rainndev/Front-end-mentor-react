@@ -42,7 +42,7 @@ const NavigationBar = () => {
 
         <button
           onClick={() => toggleDarkMode()}
-          className="aspect-square dark:bg-BEM-neutral-700 p-2.5 size-10 rounded-lg items-center justify-center flex dark:hover:bg-BEM-neutral-600 cursor-pointer transition-colors ease-in-out duration-200 bg-BEM-neutral-100 "
+          className="aspect-square dark:bg-BEM-neutral-700 p-2.5 size-10 rounded-lg items-center justify-center flex dark:hover:bg-BEM-neutral-600 cursor-pointer transition-colors ease-in-out duration-200 bg-BEM-neutral-100  browser-extension-focus-state border-2"
         >
           {isDarkMode ? (
             <img

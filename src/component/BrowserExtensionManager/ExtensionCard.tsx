@@ -27,15 +27,15 @@ const ExtensionCard = (extensionData: ExtensionItemProps) => {
            dark:text-BEM-neutral-0
           hover:text-BEM-neutral-0
           
-          hover:bg-BEM-red-700 text-BEM-neutral-900  border rounded-full
+          hover:bg-BEM-red-700 text-BEM-neutral-900  border-2 rounded-full
           border-BEM-neutral-300
-          dark:border-BEM-neutral-600 dark:hover:bg-BEM-red-400 cursor-pointer dark:hover:text-BEM-neutral-900 dark:hover:border-BEM-neutral-900 transition-colors ease-in-out duration-200"
+          dark:border-BEM-neutral-600 dark:hover:bg-BEM-red-400 cursor-pointer dark:hover:text-BEM-neutral-900 dark:hover:border-BEM-neutral-900 transition-colors ease-in-out duration-200 browser-extension-focus-state"
         >
           Remove
         </button>
 
         <Switch
-          className="cursor-pointer"
+          className="cursor-pointer "
           checked={extensionData.isActive}
           onCheckedChange={() =>
             extensionData.toggleExtension(extensionData.id)
